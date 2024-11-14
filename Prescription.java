@@ -1,3 +1,5 @@
+//change this class to Dossier
+//medecin gives a prescription (what type of treatement to do ) not a medicine(dwee)
 public class Prescription {
     private String idM;
     private String medicament;
@@ -19,4 +21,3 @@ public class Prescription {
                 " Instructions: " + instructions;
     }
 }
-

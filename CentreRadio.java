@@ -2,17 +2,20 @@ public class CentreRadio {
     private String nom;
     private String adresse;
     private int num;
+    private String mail;
 
-    public CentreRadio(String nom, String adresse,int num) {
+    public CentreRadio(String nom, String adresse,int num,String mail) {
         this.nom = nom;
         this.adresse = adresse;
         this.num = num;
+        this.mail = mail;
     }
 
     public void afficherCentreRadio() {
         System.out.println("Nom du Centre: " + nom);
         System.out.println("Adresse: " + adresse);
         System.out.println("Num: " + num);
+        System.out.println("Mail: " + mail);
     }
 
     public int getNum() {
@@ -38,4 +41,11 @@ public class CentreRadio {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
+    public String getMail() {
+        return mail;
+    }
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
 }

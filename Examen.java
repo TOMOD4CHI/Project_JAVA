@@ -1,7 +1,8 @@
 public class Examen {
+    //+ i would rather add the whole patient and radiologue instead of the id only
     private String id;
     private String idP;
-    private String idM;
+    private String idM;//radiologue do the examen , NO??
     private Categorie categorie;
 
     public Examen(String id, String idP, String idM, Categorie categorie) {
