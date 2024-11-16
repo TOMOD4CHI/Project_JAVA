@@ -1,21 +1,19 @@
+import java.util.Scanner;
 public class Examen {
-    //+ i would rather add the whole patient and radiologue instead of the id only
     private String id;
-    private String idP;
-    private String idM;//radiologue do the examen , NO??
+    private Patient patient;
+    private Radiologue radiologue;
     private Categorie categorie;
+    private Rapport rapport;
 
-    public Examen(String id, String idP, String idM, Categorie categorie) {
+    public Examen(String id, Patient patient, Radiologue radiologue, Categorie categorie) {
         this.id = id;
-        this.idP = idP;
-        this.idM = idM;
+        this.patient = patient;
+        this.radiologue = radiologue;
         this.categorie = categorie;
+        Scanner sc = new Scanner(System.in);
+        this.rapport=radiologue.Rapporter(sc.next());
     }
-
-    public void afficherExamen() {
-        System.out.println("ID de l'Examen: " + id);
-        System.out.println("ID du Patient: " + idP);
-        System.out.println("ID du Médecin: " + idM);
-        categorie.afficherCategorie();
-    }
+    //then when creating tho do_exam function look for the latest rdv of this client
+    //and retrieve the prescription from there to assign it to his dossier and add the price of the treatement
 }

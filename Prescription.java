@@ -1,23 +1,17 @@
 //change this class to Dossier
 //medecin gives a prescription (what type of treatement to do ) not a medicine(dwee)
 public class Prescription {
-    private String idM;
-    private String medicament;
-    private int dose;
-    private String instructions;
+    private Medecin medecin;
+    private String traitement;
 
-    public Prescription(String idM, String medicament, int dose, String instructions) {
-        this.idM = idM;
-        this.medicament = medicament;
-        this.dose = dose;
-        this.instructions = instructions;
+    public Prescription(String categorie, Medecin medecin) {
+        this.traitement = categorie;
+        this.medecin = medecin;
     }
 
     @Override
     public String toString() {
-        return "Prescription du Médecin ID: " + idM +
-                " Médicament: " + medicament +
-                " Dose: " + dose + "mL"+
-                " Instructions: " + instructions;
+        return "Prescipter par le  Medecin  " + medecin.getNom()+" "+medecin.getPrenom() +
+                "\nType de traitement: " + traitement;
     }
 }

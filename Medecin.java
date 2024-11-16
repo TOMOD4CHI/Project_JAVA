@@ -1,17 +1,13 @@
-public class Medecin {
+public class Medecin extends Personne{
     private String idM;
-    private String nom;
     private String specialite;
     private String contact;
 
-    public Medecin(String idM, String nom, String specialite, String contact) {
+    public Medecin(String nom, String prenom, int numTelephone, String idM, String specialite, String contact) {
+        super(nom, prenom, numTelephone);
         this.idM = idM;
-        this.nom = nom;
         this.specialite = specialite;
         this.contact = contact;
     }
 
-    public void prescrire(Patient patient, Prescription prescription) {
-        patient.ajouterPrescription(prescription);
-    }
 }

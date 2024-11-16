@@ -1,15 +1,14 @@
-public class Radiologue {
+public class Radiologue extends Personne{
     private String idR;
-    private String nom;
-    private String specialite;//can be paired with categorie class
+    private Categorie specialite;//can be paired with categorie class
     //pass the categorie in constructor and get its  name to the specialite
-    public Radiologue(String idR, String nom, String specialite) {
-        this.idR = idR;
-        this.nom = nom;
+    public Radiologue(String nom, String prenom, int numTelephone, Categorie specialite, String idR) {
+        super(nom, prenom, numTelephone);
         this.specialite = specialite;
+        this.idR = idR;
     }
 
-    public Rapport Rapporter(String idExamen, String contenu) {
-        return new Rapport(idExamen, contenu);
+    public Rapport Rapporter(String contenu) {
+        return new Rapport(contenu);
     }
 }

@@ -1,13 +1,28 @@
 public class Categorie {
     private String nom;
     private String description;
+    private double prix;
 
-    public Categorie(String nom, String description) {
+    public Categorie(String nom, String description, double prix) {
         this.nom = nom;
         this.description = description;
+        this.prix = prix;
     }
 
-    public void afficherCategorie() {
-        System.out.println( "Catégorie: " + nom + ", Description: " + description);
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
