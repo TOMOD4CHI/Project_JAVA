@@ -1,3 +1,5 @@
+package entity;
+
 public class Medecin extends Personne{
     private String idM;
     private String specialite;

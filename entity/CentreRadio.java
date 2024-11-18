@@ -1,8 +1,10 @@
+package entity;
+
 public class CentreRadio {
     private String nom;
     private String adresse;
     private int num;
-    private String mail;
+    private String mail;    
 
     public CentreRadio(String nom, String adresse,int num,String mail) {
         this.nom = nom;

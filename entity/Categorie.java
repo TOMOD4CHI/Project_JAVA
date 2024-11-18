@@ -1,11 +1,11 @@
+package entity;
+
 public class Categorie {
     private String nom;
-    private String description;
     private double prix;
 
     public Categorie(String nom, String description, double prix) {
         this.nom = nom;
-        this.description = description;
         this.prix = prix;
     }
 
@@ -18,11 +18,10 @@ public class Categorie {
         this.nom = nom;
     }
 
-    public String getDescription() {
-        return description;
+    public double getPrix() {
+        return prix;
     }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPrix(double prix) {
+        this.prix = prix;
     }
 }
