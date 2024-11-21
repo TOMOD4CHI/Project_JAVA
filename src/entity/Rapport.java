@@ -1,0 +1,16 @@
+package entity;
+
+public class Rapport {
+    private String contenu;
+    private Radiologue radiologue;
+
+    public Rapport(String contenu,Radiologue radiologue) {
+        this.radiologue = radiologue;
+        this.contenu = contenu;
+    }
+    @Override
+    public String toString() {
+        return this.contenu;
+    }
+}
+
