@@ -3,20 +3,12 @@ package entity;
 import java.util.Scanner;
 public class Patient extends Personne{
     private String adresse;
-<<<<<<< Updated upstream
     private int CIN;
-=======
-    private String CIN;
->>>>>>> Stashed changes
     private String dateDeNaissance;
     private Dossier dossier;
 
 
-<<<<<<< Updated upstream
     public Patient(String nom, String prenom, int numTelephone, String adresse, int CIN, String dateDeNaissance, Dossier dossier) {
-=======
-    public Patient(String nom, String prenom, int numTelephone, String adresse, String CIN, String dateDeNaissance, Dossier dossier) {
->>>>>>> Stashed changes
         super(nom, prenom, numTelephone);
         this.adresse = adresse;
         this.CIN = CIN;
@@ -39,19 +31,11 @@ public class Patient extends Personne{
         this.dateDeNaissance = dateDeNaissance;
     }
 
-<<<<<<< Updated upstream
     public int  getCIN() {
         return CIN;
     }
 
     public void setCIN(int CIN) {
-=======
-    public String getCIN() {
-        return CIN;
-    }
-
-    public void setCIN(String CIN) {
->>>>>>> Stashed changes
         this.CIN = CIN;
     }
 }

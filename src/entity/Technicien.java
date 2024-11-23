@@ -3,7 +3,6 @@ package entity;
 public class Technicien extends Personne{
     private int idT;
     private static double salaire;
-<<<<<<< Updated upstream
     private int salle_attribuer;
 
     public static double getSalaire() {
@@ -15,10 +14,6 @@ public class Technicien extends Personne{
     }
 
     public Technicien(String nom, String prenom, int numTelephone, int idT, int salle_attribuer) {
-=======
-    private Salle salle_attribuer;
-    public Technicien(String nom, String prenom, int numTelephone, int idT,Salle salle_attribuer) {
->>>>>>> Stashed changes
         super(nom, prenom, numTelephone);
         this.idT = idT;
         this.salle_attribuer = salle_attribuer;
@@ -29,17 +24,10 @@ public class Technicien extends Personne{
     public void setIdT(int idT) {
         this.idT = idT;
     }
-<<<<<<< Updated upstream
     public int getSalle_attribuer() {
         return salle_attribuer;
     }
     public void setSalle_attribuer(int salle_attribuer) {
-=======
-    public Salle getSalle_attribuer() {
-        return salle_attribuer;
-    }
-    public void setSalle_attribuer(Salle salle_attribuer) {
->>>>>>> Stashed changes
         this.salle_attribuer = salle_attribuer;
     }
 }
