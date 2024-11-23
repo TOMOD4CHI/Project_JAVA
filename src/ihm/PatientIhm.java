@@ -6,9 +6,8 @@ import entity.Patient;
 import java.util.Scanner;
 
 public class PatientIhm {
-    private void PatientManagementMenu() {
+    public static int  PatientManagementMenu() {
         Scanner scanner = new Scanner(System.in);
-        while (true) {
             System.out.println("\n--- Patient MANAGEMENT ---");
             System.out.println("1. Add Patient");
             System.out.println("2. Remove Patient");
@@ -19,29 +18,10 @@ public class PatientIhm {
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
-
-            switch (choice) {
-                case 1:
-                    addPatient();
-                    break;
-                case 2:
-                    removePatient();
-                    break;
-                case 3:
-                    viewPatient();
-                    break;
-                case 4:
-                    //listAllPatient();
-                    break;
-                case 5:
-                    return;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
+            return choice;
     }
 
-    public Patient addPatient() {
+    public static Patient addPatient() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Patient Details:");
         System.out.print("First Name: ");
@@ -55,14 +35,14 @@ public class PatientIhm {
         String adresse = scanner.nextLine();
         System.out.print("Patient CIN: ");
         int cin = scanner.nextInt();
-
         System.out.print("Date De Naissance: ");
         String dateDeNaissance = scanner.nextLine();
+        scanner.nextLine();
 
         return new Patient(nom, prenom, numTelephone, adresse ,cin, dateDeNaissance,new Dossier());
     }
 
-    private int removePatient() {
+    public static int removePatient() {
         System.out.print("Enter Patient CIN to remove: ");
         Scanner scanner = new Scanner(System.in);
         int cin = scanner.nextInt();
@@ -76,7 +56,7 @@ public class PatientIhm {
         }*/
     }
 
-    public int viewPatient() {
+    public static int viewPatient() {
         System.out.print("Enter Patient CIN to view: ");
         Scanner scanner = new Scanner(System.in);
         int cin = scanner.nextInt();

@@ -3,53 +3,21 @@ import entity.*;
 
 import java.util.List;
 import java.util.Scanner;
+public class Menu {
 
-public int displayMainMenu() {
-    Scanner scanner = new Scanner(System.in);
-    int choice=0 ;
-    while (choice !=6) {
-        System.out.println("\n--- ADMINISTRATION MANAGEMENT SYSTEM ---");
-        System.out.println("1. Patient Management");
-        System.out.println("2. Medecin Management");
-        System.out.println("3. Radiologue Management");
-        System.out.println("4. Technicien Management");
-        System.out.println("5. Rendez-Vous Management");
-        System.out.println("6. Exit");
-        System.out.print("Enter your choice: ");
-        choice = scanner.nextInt();
-         // Consume newline
-        //for the controller
-        /*switch (choice) {
-            case 1:
-                patientManagementMenu();
-                break;
-            case 2:
-                medecinManagementMenu();
-                break;
-            case 3:
-                radiologueManagementMenu();
-                break;
-            case 4:
-                technicienManagementMenu();
-                break;
-            case 5:
-                rendezVousManagementMenu();
-                break;
-            case 6:
-                System.out.println("Exiting Administration System...");
-                return;
-            default:
-                System.out.println("Invalid choice. Please try again.");
-        }*/
+    public static int displayMainMenu() {
+        Scanner scanner = new Scanner(System.in);
+            System.out.println("\n--- ADMINISTRATION MANAGEMENT SYSTEM ---");
+            System.out.println("1. Patient Management");
+            System.out.println("2. Medecin Management");
+            System.out.println("3. Radiologue Management");
+            System.out.println("4. Technicien Management");
+            System.out.println("5. Rendez-Vous Management");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
+        return scanner.nextInt();
+        }
     }
-    return choice;
-}
-
-public void main() {
-}
-
-public void main() {
-}
 
 /*private void patientManagementMenu() {
     Scanner scanner = new Scanner(System.in);
@@ -311,3 +279,5 @@ public static void main(String[] args) {
     menu.displayMainMenu();
 }
 }
+
+ */

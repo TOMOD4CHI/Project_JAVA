@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import entity.Patient;
-import entity.Personne;
+import entity.Patient;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -13,7 +13,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersPatient implements Pers {
+public class PersPatient{
     private static final String PATIENTS_FILE = "patients.json";
     private Gson gson;
 
@@ -23,9 +23,8 @@ public class PersPatient implements Pers {
                 .setPrettyPrinting()
                 .create();
     }
-
-    @Override
-    public void add(Personne p) {
+    
+    public void add(Patient p) {
         if (!(p instanceof Patient)) {
             throw new IllegalArgumentException("Only Patient objects can be added");
         }
@@ -44,8 +43,7 @@ public class PersPatient implements Pers {
         }
     }
 
-    @Override
-    public void remove(Personne p) {
+    public void remove(Patient p) {
         if (!(p instanceof Patient)) {
             throw new IllegalArgumentException("Only Patient objects can be removed");
         }
@@ -63,9 +61,7 @@ public class PersPatient implements Pers {
             e.printStackTrace();
         }
     }
-
-    @Override
-    public Personne getPersonne(int id) {
+    public Patient getPatient(int id) {
         try {
             List<Patient> patientList = readPatients();
 
@@ -79,20 +75,16 @@ public class PersPatient implements Pers {
         }
     }
 
-    @Override
-    public Personne getAll() {
+    public List<Patient> getAll() {
         try {
             List<Patient> patientList = readPatients();
-
-            // If you need to return a single Personne, return the first patient
-            return !patientList.isEmpty() ? patientList.get(0) : null;
+            return !patientList.isEmpty() ? patientList : null;
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    @Override
     public void update(int id) {
         try {
             List<Patient> patientList = readPatients();

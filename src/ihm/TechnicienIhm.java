@@ -5,9 +5,8 @@ import entity.Technicien;
 import java.util.Scanner;
 
 public class TechnicienIhm {
-    private void TechnicienManagementMenu() {
+    public static int TechnicienManagementMenu() {
         Scanner scanner = new Scanner(System.in);
-        while (true) {
             System.out.println("\n--- Technicien MANAGEMENT ---");
             System.out.println("1. Add Technicien");
             System.out.println("2. Remove Technicien");
@@ -18,29 +17,10 @@ public class TechnicienIhm {
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
-
-            switch (choice) {
-                case 1:
-                    addTechnicien();
-                    break;
-                case 2:
-                    removeTechnicien();
-                    break;
-                case 3:
-                    viewTechnicien();
-                    break;
-                case 4:
-                    //listAllTechnicien();
-                    break;
-                case 5:
-                    return;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
+            return choice;
     }
 
-    public Technicien addTechnicien() {
+    public static Technicien addTechnicien() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Technicien Details:");
         System.out.print("First Name: ");
@@ -59,7 +39,7 @@ public class TechnicienIhm {
         return new Technicien(nom, prenom, numTelephone, idT ,numSalle);
     }
 
-    private int removeTechnicien() {
+    public static int removeTechnicien() {
         System.out.print("Enter Technicien ID to remove: ");
         Scanner scanner = new Scanner(System.in);
         int idT = scanner.nextInt();
@@ -73,7 +53,7 @@ public class TechnicienIhm {
         }*/
     }
 
-    public int viewTechnicien() {
+    public static int viewTechnicien() {
         System.out.print("Enter Technicien ID to view: ");
         Scanner scanner = new Scanner(System.in);
         int idT = scanner.nextInt();

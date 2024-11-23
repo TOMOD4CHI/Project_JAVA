@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import entity.Radiologue;
+import entity.Radiologue;
 import entity.Personne;
 
 import java.io.FileReader;
@@ -13,7 +14,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersRadiologue implements Pers {
+public class PersRadiologue {
     private static final String RADIOLOGUES_FILE = "radiologues.json";
     private Gson gson;
 
@@ -21,7 +22,7 @@ public class PersRadiologue implements Pers {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
-    @Override
+    
     public void add(Personne p) {
         if (!(p instanceof Radiologue)) {
             throw new IllegalArgumentException("Only Radiologue objects can be added");
@@ -36,7 +37,7 @@ public class PersRadiologue implements Pers {
         }
     }
 
-    @Override
+    
     public void remove(Personne p) {
         if (!(p instanceof Radiologue)) {
             throw new IllegalArgumentException("Only Radiologue objects can be removed");
@@ -45,19 +46,19 @@ public class PersRadiologue implements Pers {
         try {
             List<Radiologue> radiologueList = readRadiologues();
             Radiologue radiologue = (Radiologue) p;
-            radiologueList.removeIf(existingRadiologue -> existingRadiologue.getIdR().equals(radiologue.getIdR()));
+            radiologueList.removeIf(existingRadiologue -> existingRadiologue.getIdR() == (radiologue.getIdR()));
             writeRadiologues(radiologueList);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    @Override
-    public Personne getPersonne(int id) {
+    
+    public Personne getRadiologue(int id) {
         try {
             List<Radiologue> radiologueList = readRadiologues();
             return radiologueList.stream()
-                    .filter(radiologue -> Integer.parseInt(radiologue.getIdR()) == id)
+                    .filter(radiologue -> Integer.parseInt(String.valueOf(radiologue.getIdR())) == id)
                     .findFirst()
                     .orElse(null);
         } catch (IOException e) {
@@ -66,7 +67,7 @@ public class PersRadiologue implements Pers {
         }
     }
 
-    @Override
+    
     public Personne getAll() {
         try {
             List<Radiologue> radiologueList = readRadiologues();
@@ -77,12 +78,12 @@ public class PersRadiologue implements Pers {
         }
     }
 
-    @Override
+    
     public void update(int id) {
         try {
             List<Radiologue> radiologueList = readRadiologues();
             Radiologue radiologueToUpdate = radiologueList.stream()
-                    .filter(radiologue -> Integer.parseInt(radiologue.getIdR()) == id)
+                    .filter(radiologue -> Integer.parseInt(String.valueOf(radiologue.getIdR())) == id)
                     .findFirst()
                     .orElse(null);
 
@@ -108,6 +109,14 @@ public class PersRadiologue implements Pers {
     private void writeRadiologues(List<Radiologue> radiologueList) throws IOException {
         try (FileWriter writer = new FileWriter(RADIOLOGUES_FILE)) {
             gson.toJson(radiologueList, writer);
+        }
+    }
+    public List<Radiologue> getAllRadiologue() {
+        try {
+            return readRadiologues();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
         }
     }
 }

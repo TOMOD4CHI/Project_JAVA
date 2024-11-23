@@ -5,9 +5,8 @@ import entity.Radiologue;
 import java.util.Scanner;
 
 public class RadiologueIhm {
-    private void RadiologueManagementMenu() {
+    public static int RadiologueManagementMenu() {
         Scanner scanner = new Scanner(System.in);
-        while (true) {
             System.out.println("\n--- RADIOLOGUE MANAGEMENT ---");
             System.out.println("1. Add Radiologue");
             System.out.println("2. Remove Radiologue");
@@ -18,29 +17,10 @@ public class RadiologueIhm {
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
-
-            switch (choice) {
-                case 1:
-                    addRadiologue();
-                    break;
-                case 2:
-                    removeRadiologue();
-                    break;
-                case 3:
-                    viewRadiologue();
-                    break;
-                case 4:
-                    //listAllRadiologue();
-                    break;
-                case 5:
-                    return;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
+        return choice;
     }
 
-    public Radiologue addRadiologue() {
+    public static Radiologue addRadiologue() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Radiologue Details:");
         System.out.print("First Name: ");
@@ -58,7 +38,7 @@ public class RadiologueIhm {
         return new Radiologue(nom, prenom, numTelephone, specialite,idR);
     }
 
-    private int removeRadiologue() {
+    public static int removeRadiologue() {
         System.out.print("Enter Radiologue ID to remove: ");
         Scanner scanner = new Scanner(System.in);
         int idR = scanner.nextInt();
@@ -72,7 +52,7 @@ public class RadiologueIhm {
         }*/
     }
 
-    public int viewRadiologue() {
+    public static int viewRadiologue() {
         System.out.print("Enter Radiologue ID to view: ");
         Scanner scanner = new Scanner(System.in);
         int idR = scanner.nextInt();

@@ -5,9 +5,8 @@ import entity.Medecin;
 import java.util.Scanner;
 
 public class MedecinIhm {
-    private void MedecinManagementMenu() {
+    public static int MedecinManagementMenu() {
         Scanner scanner = new Scanner(System.in);
-        while (true) {
             System.out.println("\n--- Medecin MANAGEMENT ---");
             System.out.println("1. Add Medecin");
             System.out.println("2. Remove Medecin");
@@ -18,29 +17,10 @@ public class MedecinIhm {
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
-
-            switch (choice) {
-                case 1:
-                    addMedecin();
-                    break;
-                case 2:
-                    removeMedecin();
-                    break;
-                case 3:
-                    viewMedecin();
-                    break;
-                case 4:
-                    //listAllMedecin();
-                    break;
-                case 5:
-                    return;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
+            return choice;
     }
 
-    public Medecin addMedecin() {
+    public static Medecin addMedecin() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Medecin Details:");
         System.out.print("First Name: ");
@@ -52,16 +32,16 @@ public class MedecinIhm {
         scanner.nextLine();
         System.out.print("Medecin ID: ");
         int idM = scanner.nextInt();
-
         System.out.print("Specialite: ");
         String specialite = scanner.nextLine();
+        scanner.nextLine();
         System.out.print("Contact: ");
         String contact = scanner.nextLine();// Consume newline
 
         return new Medecin(nom, prenom, numTelephone, idM ,specialite, contact);
     }
 
-    private int removeMedecin() {
+    public static int removeMedecin() {
         System.out.print("Enter Medecin ID to remove: ");
         Scanner scanner = new Scanner(System.in);
         int idM = scanner.nextInt();
@@ -75,7 +55,7 @@ public class MedecinIhm {
         }*/
     }
 
-    public int viewMedecin() {
+    public static int viewMedecin() {
         System.out.print("Enter Medecin ID to view: ");
         Scanner scanner = new Scanner(System.in);
         int idM = scanner.nextInt();

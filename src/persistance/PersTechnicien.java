@@ -3,6 +3,8 @@ package persistance;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import entity.Patient;
+import entity.Radiologue;
 import entity.Technicien;
 import entity.Personne;
 
@@ -13,7 +15,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersTechnicien implements Pers {
+public class PersTechnicien {
     private static final String TECHNICIENS_FILE = "techniciens.json";
     private Gson gson;
 
@@ -21,7 +23,7 @@ public class PersTechnicien implements Pers {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
-    @Override
+    
     public void add(Personne p) {
         if (!(p instanceof Technicien)) {
             throw new IllegalArgumentException("Only Technicien objects can be added");
@@ -36,7 +38,7 @@ public class PersTechnicien implements Pers {
         }
     }
 
-    @Override
+    
     public void remove(Personne p) {
         if (!(p instanceof Technicien)) {
             throw new IllegalArgumentException("Only Technicien objects can be removed");
@@ -52,8 +54,8 @@ public class PersTechnicien implements Pers {
         }
     }
 
-    @Override
-    public Personne getPersonne(int id) {
+    
+    public Personne getTechnicien(int id) {
         try {
             List<Technicien> technicienList = readTechniciens();
             return technicienList.stream()
@@ -66,7 +68,7 @@ public class PersTechnicien implements Pers {
         }
     }
 
-    @Override
+    
     public Personne getAll() {
         try {
             List<Technicien> technicienList = readTechniciens();
@@ -77,7 +79,7 @@ public class PersTechnicien implements Pers {
         }
     }
 
-    @Override
+    
     public void update(int id) {
         try {
             List<Technicien> technicienList = readTechniciens();
@@ -108,6 +110,14 @@ public class PersTechnicien implements Pers {
     private void writeTechniciens(List<Technicien> technicienList) throws IOException {
         try (FileWriter writer = new FileWriter(TECHNICIENS_FILE)) {
             gson.toJson(technicienList, writer);
+        }
+    }
+    public List<Technicien> getAllTechnicien() {
+        try {
+            return readTechniciens();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
         }
     }
 }

@@ -6,9 +6,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class SalleIhm {
-    private void SalleManagementMenu() {
+    public static int SalleManagementMenu() {
         Scanner scanner = new Scanner(System.in);
-        while (true) {
             System.out.println("\n--- Salle MANAGEMENT ---");
             System.out.println("1. Add Salle");
             System.out.println("2. Remove Salle");
@@ -34,14 +33,14 @@ public class SalleIhm {
                     //listAllSalle();
                     break;
                 case 5:
-                    return;
+                    break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
-        }
+            return choice;
     }
 
-    public Salle addSalle() {
+    public static Salle addSalle() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Salle Details:");
         System.out.print("Numero Salle: ");
@@ -60,9 +59,10 @@ public class SalleIhm {
         int num = scanner.nextInt();
         HashMap<Integer, Integer> res = new HashMap<Integer, Integer>();
         res.put(idT, num);
+        return res;
     }
 
-    private int removeSalle() {
+    public static int removeSalle() {
         System.out.print("Enter numero de Salle  to remove: ");
         Scanner scanner = new Scanner(System.in);
         int num = scanner.nextInt();
@@ -84,9 +84,10 @@ public class SalleIhm {
         int num = scanner.nextInt();
         HashMap<Integer, Integer> res = new HashMap<Integer, Integer>();
         res.put(idT, num);
+        return res;
     }
 
-    public int viewSalle() {
+    public static int viewSalle() {
         System.out.print("Enter numero de Salle to view: ");
         Scanner scanner = new Scanner(System.in);
         int num = scanner.nextInt();
@@ -103,7 +104,7 @@ public class SalleIhm {
             System.out.println("Medecin not found!");
         }*/
     }
-    public HashMap<Integer, Integer> viewTechnicien() {
+    public static HashMap<Integer, Integer> viewTechnicien() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter ID Technicien to view:");
@@ -112,6 +113,7 @@ public class SalleIhm {
         int num = scanner.nextInt();
         HashMap<Integer, Integer> res = new HashMap<Integer, Integer>();
         res.put(idT, num);
+        return res;
     }
 
     /*private void listAllMedecins() {
