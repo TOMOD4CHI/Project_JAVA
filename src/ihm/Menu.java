@@ -45,7 +45,13 @@ public int displayMainMenu() {
     return choice;
 }
 
-private void patientManagementMenu() {
+public void main() {
+}
+
+public void main() {
+}
+
+/*private void patientManagementMenu() {
     Scanner scanner = new Scanner(System.in);
     while (true) {
         System.out.println("\n--- PATIENT MANAGEMENT ---");
