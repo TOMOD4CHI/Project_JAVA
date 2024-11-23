@@ -1,19 +1,11 @@
 package entity;
 
 public class Radiologue extends Personne{
-<<<<<<< Updated upstream
-    private int idR;
-    private Categorie specialite;//can be paired with categorie class
-    private  static double salaire;
-    //pass the categorie in constructor and get its  name to the specialite
-    public Radiologue(String nom, String prenom, int numTelephone, String specialite, int idR) {
-=======
     private String idR;
     private Categorie specialite;//can be paired with categorie class
     private  static double salaire;
     //pass the categorie in constructor and get its  name to the specialite
     public Radiologue(String nom, String prenom, int numTelephone, String specialite, String idR) {
->>>>>>> Stashed changes
         super(nom, prenom, numTelephone);
         this.idR = idR;
         getCategorie(specialite);
@@ -21,19 +13,11 @@ public class Radiologue extends Personne{
     public void getCategorie(String specialite) {
         //check if specialite exists in categories and get it to the specialite variable
     }
-<<<<<<< Updated upstream
-    public int getIdR() {
-        return idR;
-    }
-
-    public void setIdR(int idR) {
-=======
     public String getIdR() {
         return idR;
     }
 
     public void setIdR(String idR) {
->>>>>>> Stashed changes
         this.idR = idR;
     }
 

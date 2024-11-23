@@ -1,4 +1,5 @@
 package entity;
+<<<<<<< Updated upstream
 import java.util.ArrayList;
 import java.util.HashMap;
 //Contient les compte rendue et prescription de chaque patient
@@ -9,4 +10,10 @@ public class Dossier {
         res.put(prescription, rapport);
         this.results.add(res);
     }
+=======
+
+//Contient les compte rendue et prescription de chaque patient
+public class Dossier {
+
+>>>>>>> Stashed changes
 }
