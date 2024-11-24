@@ -6,35 +6,38 @@ import ihm.*;
 
 public class Controller {
     public static void init() {
-        int choice = Menu.displayMainMenu();
-        while (choice != 6) {
+        while (true) {
+            int choice = Menu.displayMainMenu();
             switch (choice) {
                 case 1:
                     PatientCnt p = new PatientCnt();
                     p.showPatientMenu();
                     break;
                 case 2:
-                    MedecinCnt m=new MedecinCnt();
+                    MedecinCnt m = new MedecinCnt();
                     m.showMedecinMenu();
                     break;
                 case 3:
-                    RadiologueCnt r=new RadiologueCnt();
+                    RadiologueCnt r = new RadiologueCnt();
                     r.showRadiologueMenu();
                     break;
                 case 4:
-                    TechnicienCnt t=new TechnicienCnt();
+                    TechnicienCnt t = new TechnicienCnt();
                     t.showTechnicienMenu();
                     break;
-               /* case 5:
-                    RendezVousIhm rendezVousIhm=new PatientIhm();
-                    rendezVousIhm.rendezVousManagementMenu();
-                    break;*/
-                case 6:
+                case 5:
+                    CategorieCnt c = new CategorieCnt();
+                    c.showCategorieMenu();
+                    break;
+                case 7:
                     System.out.println("Exiting Administration System...");
                     return;
+                    //case 6 for RDV
                 default:
                     System.out.println("Invalid choice. Please try again.");
+                    break;
             }
         }
     }
+
 }

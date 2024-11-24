@@ -48,12 +48,6 @@ public class PatientIhm {
         int cin = scanner.nextInt();
 
         return cin;
-        /*if (medecin != null) {
-            persMedecin.remove(medecin);
-            System.out.println("Medecin removed successfully!");
-        } else {
-            System.out.println("Medecin not found!");
-        }*/
     }
 
     public static int viewPatient() {
@@ -62,21 +56,6 @@ public class PatientIhm {
         int cin = scanner.nextInt();
 
         return cin;
-        /*if (medecin != null) {
-            System.out.println("Medecin Details:");
-            System.out.println("Name: " + medecin.getNom() + " " + medecin.getPrenom());
-            System.out.println("Phone: " + medecin.getNumTelephone());
-            System.out.println("Specialty: " + medecin.getSpecialite());
-            System.out.println("Contact: " + medecin.getContact());
-        } else {
-            System.out.println("Medecin not found!");
-        }*/
     }
-
-    /*private void listAllMedecins() {
-        Scanner scanner = new Scanner(System.in);
-        // Placeholder for listing all medecins
-        System.out.println("--- ALL MEDECINS ---");
-    }*/
 
 }
