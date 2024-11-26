@@ -1,0 +1,14 @@
+[
+  {
+    "num": 5,
+    "technicien": [
+      {
+        "idT": 111,
+        "salle_attribuer": 4,
+        "nom": "fdfd",
+        "prenom": "fdf",
+        "numTelephone": 5
+      }
+    ]
+  }
+]

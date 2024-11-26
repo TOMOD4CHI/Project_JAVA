@@ -14,7 +14,8 @@ public class Menu {
             System.out.println("4. Technicien Management");
             System.out.println("5. Exam Categories Management");
             System.out.println("6. Rendez-Vous Management");
-            System.out.println("7. Exit");
+            System.out.println("7. Salle Management");
+            System.out.println("8. Exit");
             System.out.print("Enter your choice: ");
         return scanner.nextInt();
         }

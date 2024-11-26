@@ -38,7 +38,60 @@ public class PersTechnicien {
         }
     }
 
-    
+    public boolean modify(int idT, Technicien updatedTechnicien) {
+        try {
+            List<Technicien> technicienList = readTechniciens();
+
+            // Find the patient to update
+            for (int i = 0; i < technicienList.size(); i++) {
+                Technicien existingTechnicien = technicienList.get(i);
+
+                // Match patient by CIN
+                if (existingTechnicien.getIdT() == idT) {
+                    // Update all fields except CIN
+                    existingTechnicien.setNom(updatedTechnicien.getNom());
+                    existingTechnicien.setPrenom(updatedTechnicien.getPrenom());
+                    existingTechnicien.setNumTelephone(updatedTechnicien.getNumTelephone());
+                    existingTechnicien.setSalle_attribuer(updatedTechnicien.getSalle_attribuer());
+
+                    // Write back the updated list
+                    writeTechniciens(technicienList);
+                    System.out.println("Patient updated successfully.");
+                    return true;
+                }
+            }
+
+            System.out.println("Patient not found.");
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // Rename this method to avoid confusion with the new modify method
+    public void updatePlaceholder(int id) {
+        try {
+            List<Technicien> technicienList = readTechniciens();
+
+            // Find the patient to update
+            Technicien patientToUpdate = technicienList.stream()
+                    .filter(patient -> patient.getIdT() == id)
+                    .findFirst()
+                    .orElse(null);
+
+            if (patientToUpdate != null) {
+                // Placeholder for update logic
+                // In a real implementation, you'd modify the patient object
+                System.out.println("Patient found: " + patientToUpdate.getNom());
+
+                // Write back the updated list
+                writeTechniciens(technicienList);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void remove(Personne p) {
         if (!(p instanceof Technicien)) {
             throw new IllegalArgumentException("Only Technicien objects can be removed");

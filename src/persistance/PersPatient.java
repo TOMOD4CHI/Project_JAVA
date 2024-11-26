@@ -42,7 +42,61 @@ public class PersPatient{
             e.printStackTrace();
         }
     }
+    public boolean modify(int CIN, Patient updatedPatient) {
+        try {
+            List<Patient> patientList = readPatients();
 
+            // Find the patient to update
+            for (int i = 0; i < patientList.size(); i++) {
+                Patient existingPatient = patientList.get(i);
+
+                // Match patient by CIN
+                if (existingPatient.getCIN() == CIN) {
+                    // Update all fields except CIN
+                    existingPatient.setNom(updatedPatient.getNom());
+                    existingPatient.setPrenom(updatedPatient.getPrenom());
+                    existingPatient.setNumTelephone(updatedPatient.getNumTelephone());
+                    existingPatient.setAdresse(updatedPatient.getAdresse());
+                    existingPatient.setDateDeNaissance(updatedPatient.getDateDeNaissance());
+
+                    // Write back the updated list
+                    writePatients(patientList);
+                    System.out.println("Patient updated successfully.");
+                    return true;
+                }
+            }
+
+            System.out.println("Patient not found.");
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // Rename this method to avoid confusion with the new modify method
+    public void updatePlaceholder(int id) {
+        try {
+            List<Patient> patientList = readPatients();
+
+            // Find the patient to update
+            Patient patientToUpdate = patientList.stream()
+                    .filter(patient -> patient.getCIN() == id)
+                    .findFirst()
+                    .orElse(null);
+
+            if (patientToUpdate != null) {
+                // Placeholder for update logic
+                // In a real implementation, you'd modify the patient object
+                System.out.println("Patient found: " + patientToUpdate.getNom());
+
+                // Write back the updated list
+                writePatients(patientList);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void remove(Patient p) {
         if (!(p instanceof Patient)) {
             throw new IllegalArgumentException("Only Patient objects can be removed");

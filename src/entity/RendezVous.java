@@ -1,22 +1,25 @@
 package entity;
 
 import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 //note every instance shall be saves into a json file
 //so we can every patient have his own treatement(based on the categorie)
+
 public class RendezVous {
     //when creating a rdv make sure that this  patient has no rdv not done
-    //Date date;
+    private String date;
     private int idRv;
     private Patient patient;
     private Prescription prescription;//base on this schedule the rendez-vous
     private String state="Waiting";
-    RendezVous(int idRv, Patient patient) {
+    RendezVous(int idRv, Patient patient,String date) {
         this.idRv = idRv;
         this.patient = patient;
         //static because every patient will give his prescrption
        generatePrescription();
-        //this.date=date;
+        this.date=date;
     }
     private void generatePrescription() {
         Scanner scanner = new Scanner(System.in);
@@ -50,6 +53,13 @@ public class RendezVous {
     }
     private void scheduleRDV(){
         //schedule the rdv
+        //serv
+    }
+    public String getDate() {
+        return date;
+    }
+    public void setDate(String date) {
+        this.date = date;
     }
     public Prescription getPrescription() {
         return prescription;

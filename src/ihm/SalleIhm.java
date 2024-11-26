@@ -13,30 +13,13 @@ public class SalleIhm {
             System.out.println("2. Remove Salle");
             System.out.println("3. View Salle");
             System.out.println("4. List All Salle");
-            System.out.println("5. Return to Main Menu");
+            System.out.println("5. Add Technicien to Salle");
+            System.out.println("6. Remove Technicien from Salle");
+            System.out.println("7. Return to Main Menu");
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
-
-            switch (choice) {
-                case 1:
-                    addSalle();
-                    break;
-                case 2:
-                    removeSalle();
-                    break;
-                case 3:
-                    viewSalle();
-                    break;
-                case 4:
-                    //listAllSalle();
-                    break;
-                case 5:
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
             return choice;
     }
 
@@ -45,11 +28,9 @@ public class SalleIhm {
         System.out.println("Enter Salle Details:");
         System.out.print("Numero Salle: ");
         int num = scanner.nextInt();
-
-
         return new Salle(num);
     }
-    public HashMap<Integer, Integer> addTechnicien() {
+    public static HashMap<String, Integer> addTechnicien() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter Technicien Details:");
@@ -57,8 +38,9 @@ public class SalleIhm {
         int idT = scanner.nextInt();
         System.out.print("Numero Salle: ");
         int num = scanner.nextInt();
-        HashMap<Integer, Integer> res = new HashMap<Integer, Integer>();
-        res.put(idT, num);
+        HashMap<String, Integer> res = new HashMap<String, Integer>();
+        res.put("NumS",num);
+        res.put("IdT", idT);
         return res;
     }
 
@@ -68,22 +50,17 @@ public class SalleIhm {
         int num = scanner.nextInt();
 
         return num;
-        /*if (medecin != null) {
-            persMedecin.remove(medecin);
-            System.out.println("Medecin removed successfully!");
-        } else {
-            System.out.println("Medecin not found!");
-        }*/
     }
-    public HashMap<Integer, Integer> removeTechnicien() {
+    public static HashMap<String, Integer> removeTechnicien() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter ID Technicien to remove:");
         int idT = scanner.nextInt();
         System.out.print("Enter Numero de Salle du Technicien to remove: ");
         int num = scanner.nextInt();
-        HashMap<Integer, Integer> res = new HashMap<Integer, Integer>();
-        res.put(idT, num);
+        HashMap<String, Integer> res = new HashMap<String, Integer>();
+        res.put("IdT", idT);
+        res.put("NumS", num);
         return res;
     }
 
@@ -94,35 +71,19 @@ public class SalleIhm {
 
         return num;
 
-        /*if (medecin != null) {
-            System.out.println("Medecin Details:");
-            System.out.println("Name: " + medecin.getNom() + " " + medecin.getPrenom());
-            System.out.println("Phone: " + medecin.getNumTelephone());
-            System.out.println("Specialty: " + medecin.getSpecialite());
-            System.out.println("Contact: " + medecin.getContact());
-        } else {
-            System.out.println("Medecin not found!");
-        }*/
     }
-    public static HashMap<Integer, Integer> viewTechnicien() {
+    public static HashMap<String, Integer> viewTechnicien() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter ID Technicien to view:");
         int idT = scanner.nextInt();
         System.out.print("Enter Numero de Salle du Technicien to view: ");
         int num = scanner.nextInt();
-        HashMap<Integer, Integer> res = new HashMap<Integer, Integer>();
-        res.put(idT, num);
+        HashMap<String, Integer> res = new HashMap<String, Integer>();
+        res.put("IdT", idT);
+        res.put("NumS",num);
         return res;
     }
-
-    /*private void listAllMedecins() {
-        Scanner scanner = new Scanner(System.in);
-        // Placeholder for listing all medecins
-        System.out.println("--- ALL MEDECINS ---");
-    }*/
-
-
 
 }
 

@@ -4,6 +4,8 @@ import entity.Radiologue;
 import entity.Radiologue;
 import persistance.PersRadiologue;
 
+import java.util.List;
+
 public class RadiologueServ {
     PersRadiologue persRadiologue=new PersRadiologue();
     public void addRadiologue(Radiologue p) {
@@ -34,10 +36,8 @@ public class RadiologueServ {
         }
     }
 
-    public void listAllRadiologues() {
+    public List<Radiologue> listAllRadiologues() {
         System.out.println("--- ALL RadiologueS ---");
-        for(Radiologue Radiologue : persRadiologue.getAllRadiologue()) {
-            viewRadiologue(Radiologue.getIdR());
-        }
+        return persRadiologue.getAllRadiologue();
     }
 }

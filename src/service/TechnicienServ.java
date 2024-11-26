@@ -20,7 +20,7 @@ public class TechnicienServ {
             //System.out.println("Technicien not found!");
         }
     }
-    public  void viewTechnicien(int idR) {
+    public  Technicien viewTechnicien(int idR) {
         Technicien technicien = (Technicien) persTechnicien.getTechnicien(idR);
         if (technicien != null) {
             System.out.println("Technicien Details:");
@@ -28,9 +28,10 @@ public class TechnicienServ {
             System.out.println("Phone: " + technicien.getNumTelephone());
             System.out.println("Num Salle : " + technicien.getSalle_attribuer());
             System.out.println("Salaire : " + Technicien.getSalaire());
+            return technicien;
         } else {
-
             System.out.println("Technicien not found!");
+            return null;
         }
     }
 
@@ -39,5 +40,8 @@ public class TechnicienServ {
         for(Technicien Technicien : persTechnicien.getAllTechnicien()) {
             viewTechnicien(Technicien.getIdT());
         }
+    }
+    public boolean modifyTechnicien(int idT,Technicien t){
+        return persTechnicien.modify(idT,t);
     }
 }

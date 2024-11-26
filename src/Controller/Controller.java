@@ -30,6 +30,10 @@ public class Controller {
                     c.showCategorieMenu();
                     break;
                 case 7:
+                    SalleCnt s = new SalleCnt();
+                    s.showSalleMenu();
+                    break;
+                case 8:
                     System.out.println("Exiting Administration System...");
                     return;
                     //case 6 for RDV
