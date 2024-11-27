@@ -1,0 +1,56 @@
+[
+  {
+    "radiologue": {
+      "idR": 8,
+      "nom": "fsdklfjs",
+      "prenom": "kfsdhkf",
+      "numTelephone": 2255
+    },
+    "salle": {
+      "num": 5,
+      "technicien": [
+        {
+          "idT": 111,
+          "salle_attribuer": 4,
+          "nom": "fdfd",
+          "prenom": "fdf",
+          "numTelephone": 5
+        }
+      ]
+    },
+    "Date": "2024-11-27T15:58:35.8407902"
+  },
+  {
+    "radiologue": {
+      "idR": 444,
+      "nom": "fsfs",
+      "prenom": "sfsdf",
+      "numTelephone": 584
+    },
+    "salle": {
+      "num": 5,
+      "technicien": [
+        {
+          "idT": 111,
+          "salle_attribuer": 4,
+          "nom": "fdfd",
+          "prenom": "fdf",
+          "numTelephone": 5
+        }
+      ]
+    },
+    "Date": "2024-11-27T16:59:04.2604086"
+  },
+  {
+    "radiologue": {
+      "idR": 11,
+      "nom": "fsf",
+      "prenom": "sdf",
+      "numTelephone": 52242
+    },
+    "salle": {
+      "num": 2
+    },
+    "Date": "2024-11-27T16:00:31.1969404"
+  }
+]

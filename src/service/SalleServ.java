@@ -4,6 +4,8 @@ import entity.Salle;
 import entity.Technicien;
 import persistance.PersSalle;
 
+import java.util.List;
+
 public class SalleServ {
     PersSalle persSalle = new PersSalle();
 
@@ -43,16 +45,18 @@ public class SalleServ {
         }
     }
 
-    public void listAllSalles() {
+    public List<Salle> listAllSalles() {
         System.out.println("--- ALL SALLES ---");
         if (persSalle.getAll() != null) {
             for (Salle salle : persSalle.getAll()) {
                 viewSalle(salle.getNum());
                 System.out.println("---"); // Separator between salles
+                return persSalle.getAll();
             }
         } else {
             System.out.println("No salles found.");
         }
+        return null;
     }
 
     public void addTechnicienToSalle(int salleNum, Technicien technicien) {

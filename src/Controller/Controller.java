@@ -29,6 +29,9 @@ public class Controller {
                     CategorieCnt c = new CategorieCnt();
                     c.showCategorieMenu();
                     break;
+                case 6:
+                    RdvCnt rdv = new RdvCnt();
+                    rdv.showRdvMenu();
                 case 7:
                     SalleCnt s = new SalleCnt();
                     s.showSalleMenu();
@@ -36,7 +39,6 @@ public class Controller {
                 case 8:
                     System.out.println("Exiting Administration System...");
                     return;
-                    //case 6 for RDV
                 default:
                     System.out.println("Invalid choice. Please try again.");
                     break;
