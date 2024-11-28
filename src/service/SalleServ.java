@@ -50,7 +50,7 @@ public class SalleServ {
         if (persSalle.getAll() != null) {
             for (Salle salle : persSalle.getAll()) {
                 viewSalle(salle.getNum());
-                System.out.println("---"); // Separator between salles
+                System.out.println("---");
                 return persSalle.getAll();
             }
         } else {

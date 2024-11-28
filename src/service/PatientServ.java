@@ -38,4 +38,7 @@ public class PatientServ {
             viewPatient(patient.getCIN());
         }
     }
+    public boolean modifyPatient(int idT, Patient p){
+        return persPatient.modify(idT,p);
+    }
 }

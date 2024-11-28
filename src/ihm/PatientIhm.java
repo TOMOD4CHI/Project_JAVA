@@ -11,9 +11,10 @@ public class PatientIhm {
             System.out.println("\n--- Patient MANAGEMENT ---");
             System.out.println("1. Add Patient");
             System.out.println("2. Remove Patient");
-            System.out.println("3. View Patient");
-            System.out.println("4. List All Patient");
-            System.out.println("5. Return to Main Menu");
+            System.out.println("3. Modify Patient");
+            System.out.println("4. View Patient");
+            System.out.println("5. List All Patient");
+            System.out.println("6. Return to Main Menu");
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
@@ -22,38 +23,33 @@ public class PatientIhm {
     }
 
     public static Patient addPatient() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Patient Details:");
         System.out.print("First Name: ");
-        String prenom = scanner.nextLine();
+        String prenom = Verification.getValidName();
         System.out.print("Last Name: ");
-        String nom = scanner.nextLine();
+        String nom = Verification.getValidName();
         System.out.print("Phone Number: ");
-        int numTelephone = scanner.nextInt();
-        scanner.nextLine();
+        int numTelephone = Verification.getValidPhoneNumber();
         System.out.print("Adresse: ");
-        String adresse = scanner.nextLine();
+        String adresse = Verification.getValidAddress();
         System.out.print("Patient CIN: ");
-        int cin = scanner.nextInt();
-        System.out.print("Date De Naissance: ");
-        String dateDeNaissance = scanner.nextLine();
-        scanner.nextLine();
+        int cin = Verification.getValidCIN();
+        System.out.print("Date De Naissance (DD/MM/YYYY) : ");
+        String dateDeNaissance = Verification.getValidDateOfBirth();
 
         return new Patient(nom, prenom, numTelephone, adresse ,cin, dateDeNaissance,new Dossier());
     }
 
     public static int removePatient() {
         System.out.print("Enter Patient CIN to remove: ");
-        Scanner scanner = new Scanner(System.in);
-        int cin = scanner.nextInt();
+        int cin = Verification.getValidCIN();
 
         return cin;
     }
 
     public static int viewPatient() {
         System.out.print("Enter Patient CIN to view: ");
-        Scanner scanner = new Scanner(System.in);
-        int cin = scanner.nextInt();
+        int cin = Verification.getValidCIN();
 
         return cin;
     }

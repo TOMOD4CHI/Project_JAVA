@@ -35,9 +35,9 @@ public class SalleIhm {
 
         System.out.println("Enter Technicien Details:");
         System.out.println("Technicien ID : ");
-        int idT = scanner.nextInt();
+        int idT = Verification.getValidID();
         System.out.print("Numero Salle: ");
-        int num = scanner.nextInt();
+        int num = Verification.getValidID();
         HashMap<String, Integer> res = new HashMap<String, Integer>();
         res.put("NumS",num);
         res.put("IdT", idT);
@@ -46,18 +46,15 @@ public class SalleIhm {
 
     public static int removeSalle() {
         System.out.print("Enter numero de Salle  to remove: ");
-        Scanner scanner = new Scanner(System.in);
-        int num = scanner.nextInt();
-
-        return num;
+        return Verification.getValidID();
     }
     public static HashMap<String, Integer> removeTechnicien() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter ID Technicien to remove:");
-        int idT = scanner.nextInt();
+        int idT = Verification.getValidID();
         System.out.print("Enter Numero de Salle du Technicien to remove: ");
-        int num = scanner.nextInt();
+        int num = Verification.getValidID();
         HashMap<String, Integer> res = new HashMap<String, Integer>();
         res.put("IdT", idT);
         res.put("NumS", num);
@@ -66,19 +63,15 @@ public class SalleIhm {
 
     public static int viewSalle() {
         System.out.print("Enter numero de Salle to view: ");
-        Scanner scanner = new Scanner(System.in);
-        int num = scanner.nextInt();
-
-        return num;
+        return Verification.getValidID();
 
     }
     public static HashMap<String, Integer> viewTechnicien() {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter ID Technicien to view:");
-        int idT = scanner.nextInt();
+        int idT = Verification.getValidID();
         System.out.print("Enter Numero de Salle du Technicien to view: ");
-        int num = scanner.nextInt();
+        int num = Verification.getValidID();
         HashMap<String, Integer> res = new HashMap<String, Integer>();
         res.put("IdT", idT);
         res.put("NumS",num);

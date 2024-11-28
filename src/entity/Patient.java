@@ -38,4 +38,11 @@ public class Patient extends Personne{
     public void setCIN(int CIN) {
         this.CIN = CIN;
     }
+    public Dossier getDossier() {
+        return dossier;
+    }
+    public void setDossier(Dossier dossier) {
+        this.dossier = dossier;
+    }
 }
+

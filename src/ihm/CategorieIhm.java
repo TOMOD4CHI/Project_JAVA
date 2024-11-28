@@ -24,26 +24,21 @@ public class CategorieIhm {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Category Details:");
         System.out.print("Name: ");
-        String nom = scanner.nextLine();
-        System.out.print("Description: ");
-        String description = scanner.nextLine();
+        String nom = Verification.getValidName();
         System.out.print("Price: ");
-        double prix = scanner.nextDouble();
-        scanner.nextLine();
+        double prix = Verification.getValidPrice();
 
-        return new Categorie(nom, description, prix);
+        return new Categorie(nom, prix);
     }
 
     public static String removeCategorie() {
         System.out.print("Enter Category name to remove: ");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        return Verification.getValidName();
     }
 
     public static String viewCategorie() {
         System.out.print("Enter Category name to view: ");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        return Verification.getValidName();
     }
 
     public static Categorie modifyCategorie(Categorie existingCategorie) {
@@ -52,18 +47,15 @@ public class CategorieIhm {
         System.out.println("\nEnter new details (press Enter to keep current value):");
 
         System.out.print("New Name (current: " + existingCategorie.getNom() + "): ");
-        String newNom = scanner.nextLine();
+        String newNom = Verification.getValidName();
         if (newNom.isEmpty()) {
             newNom = existingCategorie.getNom();
         }
-
-        System.out.print("New Description: ");
-        String newDescription = scanner.nextLine();
 
         System.out.print("New Price (current: " + existingCategorie.getPrix() + "): ");
         String priceInput = scanner.nextLine();
         double newPrix = priceInput.isEmpty() ? existingCategorie.getPrix() : Double.parseDouble(priceInput);
 
-        return new Categorie(newNom, newDescription, newPrix);
+        return new Categorie(newNom, newPrix);
     }
 }

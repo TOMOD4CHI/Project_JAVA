@@ -4,7 +4,7 @@ public class Categorie {
     private String nom;
     private double prix;
 
-    public Categorie(String nom, String description, double prix) {
+    public Categorie(String nom, double prix) {
         this.nom = nom;
         this.prix = prix;
     }

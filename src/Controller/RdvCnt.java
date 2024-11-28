@@ -3,7 +3,7 @@ package Controller;
 
 import entity.RendezVous;
 
-import ihm.RendezVousIhm;
+import ihm.*;
 import service.RendezVousServ;
 
 
@@ -28,8 +28,13 @@ public class RdvCnt {
             case 4:
                 rendezVousServ.listAllRendezVous();
                 break;
-                //ad view by patient and update
+                //add view by patient and update
             case 5:
+                int CIN= PatientIhm.viewPatient();
+                rendezVousServ.showRendezVousbyPatient(CIN);
+                break;
+
+            case 6:
                 System.out.println("Exiting ...");
                 return;
             default:

@@ -57,11 +57,11 @@ public class PersRendezVous {
         }
     }
 
-    public List<RendezVous> getRendezVousByPatient(Patient patient) {
+    public List<RendezVous> getRendezVousByPatient(int CIN) {
         try {
             List<RendezVous> rendezvousList = readRendezVous();
             return rendezvousList.stream()
-                    .filter(rdv -> rdv.getPatient().getCIN() == patient.getCIN())
+                    .filter(rdv -> rdv.getPatient().getCIN() == CIN)
                     .collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
@@ -118,10 +118,10 @@ public class PersRendezVous {
         }
     }
 
-    // Method to check if a patient has any pending/waiting rendez-vous
-    public boolean hasPendingRendezVous(Patient patient) {
-        List<RendezVous> patientRdvs = getRendezVousByPatient(patient);
+    public boolean hasPendingRendezVous(int CIN) {
+        List<RendezVous> patientRdvs = getRendezVousByPatient(CIN);
         return patientRdvs.stream()
                 .anyMatch(rdv -> "Waiting".equalsIgnoreCase(rdv.getState()));
     }
+
 }

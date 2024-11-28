@@ -21,61 +21,31 @@ public class MedecinIhm {
     }
 
     public static Medecin addMedecin() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Medecin Details:");
         System.out.print("First Name: ");
-        String prenom = scanner.nextLine();
+        String prenom = Verification.getValidName();
         System.out.print("Last Name: ");
-        String nom = scanner.nextLine();
+        String nom = Verification.getValidName();
         System.out.print("Phone Number: ");
-        int numTelephone = scanner.nextInt();
-        scanner.nextLine();
+        int numTelephone = Verification.getValidPhoneNumber();
         System.out.print("Medecin ID: ");
-        int idM = scanner.nextInt();
+        int idM = Verification.getValidID();
         System.out.print("Specialite: ");
-        String specialite = scanner.nextLine();
-        scanner.nextLine();
-        System.out.print("Contact: ");
-        String contact = scanner.nextLine();// Consume newline
+        String specialite = Verification.getValidName();
+        System.out.print("Email : ");
+        String contact = Verification.getValidEmail();
 
         return new Medecin(nom, prenom, numTelephone, idM ,specialite, contact);
     }
 
     public static int removeMedecin() {
         System.out.print("Enter Medecin ID to remove: ");
-        Scanner scanner = new Scanner(System.in);
-        int idM = scanner.nextInt();
-
-        return idM;
-        /*if (medecin != null) {
-            persMedecin.remove(medecin);
-            System.out.println("Medecin removed successfully!");
-        } else {
-            System.out.println("Medecin not found!");
-        }*/
+        return Verification.getValidID();
     }
 
     public static int viewMedecin() {
         System.out.print("Enter Medecin ID to view: ");
-        Scanner scanner = new Scanner(System.in);
-        int idM = scanner.nextInt();
-
-        return idM;
-        /*if (medecin != null) {
-            System.out.println("Medecin Details:");
-            System.out.println("Name: " + medecin.getNom() + " " + medecin.getPrenom());
-            System.out.println("Phone: " + medecin.getNumTelephone());
-            System.out.println("Specialty: " + medecin.getSpecialite());
-            System.out.println("Contact: " + medecin.getContact());
-        } else {
-            System.out.println("Medecin not found!");
-        }*/
+        return Verification.getValidID();
     }
-
-    /*private void listAllMedecins() {
-        Scanner scanner = new Scanner(System.in);
-        // Placeholder for listing all medecins
-        System.out.println("--- ALL MEDECINS ---");
-    }*/
 
 }

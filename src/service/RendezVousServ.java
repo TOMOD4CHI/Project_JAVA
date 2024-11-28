@@ -110,4 +110,7 @@ public class RendezVousServ {
     public List<RendezVous> listAllRendezVous(){
         return persRendezVous.getAllRendezVous();
     }
+    public List<RendezVous> showRendezVousbyPatient(int CIN){
+        return persRendezVous.getRendezVousByPatient(CIN);
+    }
 }
