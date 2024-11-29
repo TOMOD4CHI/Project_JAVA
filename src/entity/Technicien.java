@@ -2,7 +2,7 @@ package entity;
 
 public class Technicien extends Personne{
     private int idT;
-    private static double salaire;
+    private static double salaire=1500;
     private int salle_attribuer;
 
     public static double getSalaire() {
@@ -29,5 +29,12 @@ public class Technicien extends Personne{
     }
     public void setSalle_attribuer(int salle_attribuer) {
         this.salle_attribuer = salle_attribuer;
+    }
+    @Override
+    public String toString() {
+        return "Technicien Details:\n"+
+                super.toString()+
+                "\nSalle  : " + this.salle_attribuer+
+                "\nSalaire : " + salaire+"\n-------\n";
     }
 }

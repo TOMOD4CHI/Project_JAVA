@@ -1,7 +1,7 @@
 package Controller;
 
 import entity.Categorie;
-import ihm.CategorieIhm;
+import ihm.*;
 import service.CategorieServ;
 
 public class CategorieCnt {
@@ -12,25 +12,25 @@ public class CategorieCnt {
             switch (choice) {
                 case 1:
                     Categorie newCategorie = CategorieIhm.addCategorie();
-                    categorieServ.addCategorie(newCategorie);
+                    categorieServ.addCategorie(newCategorie).showoutput();
                     break;
                 case 2:
                     String nomToRemove = CategorieIhm.removeCategorie();
-                    categorieServ.removeCategorie(nomToRemove);
+                    categorieServ.removeCategorie(nomToRemove).showoutput();
                     break;
                 case 3:
                     String nomToView = CategorieIhm.viewCategorie();
-                    categorieServ.viewCategorie(nomToView);
+                    categorieServ.viewCategorie(nomToView).showoutput();
                     break;
                 case 4:
-                    categorieServ.listAllCategories();
+                    categorieServ.listAllCategories().showoutput();
                     break;
                 case 5:
                     String nomToModify = CategorieIhm.viewCategorie();
-                    Categorie existingCategorie = categorieServ.viewCategorie(nomToModify);
+                    Categorie existingCategorie = (Categorie) categorieServ.viewCategorie(nomToModify).getObj();
                     if (existingCategorie != null) {
                         Categorie updatedCategorie = CategorieIhm.modifyCategorie(existingCategorie);
-                        categorieServ.modifyCategorie(nomToModify, updatedCategorie);
+                        categorieServ.modifyCategorie(nomToModify, updatedCategorie).showoutput();
                     }
                     break;
                 case 6:

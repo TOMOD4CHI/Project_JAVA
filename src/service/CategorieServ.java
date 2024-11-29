@@ -1,6 +1,7 @@
 package service;
 
 import entity.Categorie;
+import ihm.Output;
 import persistance.PersCategorie;
 
 import java.util.List;
@@ -8,69 +9,61 @@ import java.util.List;
 public class CategorieServ {
     PersCategorie persCategorie = new PersCategorie();
 
-    public void addCategorie(Categorie c) {
+    public Output addCategorie(Categorie c) {
         if (c != null) {
             // Check if category with same name already exists
             if (persCategorie.getCategorie(c.getNom()) != null) {
-                System.out.println("Category with this name already exists!");
-                return;
+                return new Output(false,"Category with this name already exists!",null);
             }
             persCategorie.add(c);
-            System.out.println("Category added successfully!");
+            return new Output(true,"Category added successfully!",null);
         }
+        return new Output(false,"",null);
     }
 
-    public boolean removeCategorie(String nom) {
+    public Output removeCategorie(String nom) {
         Categorie categorie = persCategorie.getCategorie(nom);
         if (categorie != null) {
             persCategorie.remove(categorie);
-            System.out.println("Category removed successfully!");
-            return true;
+            return new Output(true,"Category removed successfully!",null);
         } else {
-            System.out.println("Category not found!");
-            return false;
+            return new Output(false,"Category not found!",null);
         }
     }
 
-    public Categorie viewCategorie(String nom) {
+    public Output viewCategorie(String nom) {
         Categorie categorie = persCategorie.getCategorie(nom);
         if (categorie != null) {
-            System.out.println("Category Details:");
+            /*System.out.println("Category Details:");
             System.out.println("Name: " + categorie.getNom());
-            System.out.println("Price: " + categorie.getPrix());
-            return categorie;
+            System.out.println("Price: " + categorie.getPrix());*/
+            return new Output(true,"",categorie);
         } else {
-            System.out.println("Category not found!");
-            return null;
+            //System.out.println("Category not found!");
+            return new Output(false,"Category not found!",null);
         }
     }
 
-    public void listAllCategories() {
+    public Output listAllCategories() {
         System.out.println("--- ALL CATEGORIES ---");
         List<Categorie> categories = persCategorie.getAllCategories();
         if (categories.isEmpty()) {
-            System.out.println("No categories found!");
-            return;
+            return new Output(false,"No categories found!",null);
         }
-        for(Categorie categorie : categories) {
-            viewCategorie(categorie.getNom());
-        }
+        return new Output(true,"",categories);
     }
 
-    public boolean modifyCategorie(String nom, Categorie updatedCategorie) {
+    public Output modifyCategorie(String nom, Categorie updatedCategorie) {
         Categorie existingCategorie = persCategorie.getCategorie(nom);
         if (existingCategorie != null) {
-            // If name is changed, check if new name already exists
             if (!nom.equals(updatedCategorie.getNom()) &&
                     persCategorie.getCategorie(updatedCategorie.getNom()) != null) {
-                System.out.println("Category with new name already exists!");
-                return false;
+                return new Output(false,"Category with new name already exists!",null);
+
             }
             persCategorie.update(nom, updatedCategorie);
-            System.out.println("Category modified successfully!");
-            return true;
+            return new Output(true,"Category modified successfully!",null);
         }
-        System.out.println("Category not found!");
-        return false;
+        return new Output(false,"Category not found!",null);
     }
 }

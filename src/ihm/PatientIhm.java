@@ -1,5 +1,6 @@
 package ihm;
 
+import entity.Categorie;
 import entity.Dossier;
 import entity.Patient;
 
@@ -52,6 +53,24 @@ public class PatientIhm {
         int cin = Verification.getValidCIN();
 
         return cin;
+    }
+    public static Patient modifyPatient(Patient existingPatient) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\nEnter new details (press Enter to keep current value):");
+
+        System.out.print("First Name: ");
+        String prenom = Verification.getValidName();
+        System.out.print("Last Name: ");
+        String nom = Verification.getValidName();
+        System.out.print("Phone Number: ");
+        int numTelephone = Verification.getValidPhoneNumber();
+        System.out.print("Adresse: ");
+        String adresse = Verification.getValidAddress();
+        System.out.print("Date De Naissance (DD/MM/YYYY) : ");
+        String dateDeNaissance = Verification.getValidDateOfBirth();
+
+        return new Patient(nom, prenom,numTelephone,adresse,existingPatient.getCIN(),dateDeNaissance,existingPatient.getDossier());
     }
 
 }

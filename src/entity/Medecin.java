@@ -35,4 +35,11 @@ public class Medecin extends Personne{
     public void setContact(String contact) {
         this.contact = contact;
     }
+    @Override
+    public String toString() {
+        return
+        super.toString()+
+        "\nContact : " + this.contact+
+        "\nSpecialite : " + specialite;
+    }
 }

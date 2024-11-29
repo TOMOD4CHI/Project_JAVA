@@ -12,11 +12,12 @@ public class RendezVous {
     private String date;
     private int idRv;
     private Patient patient;
-    private Prescription prescription;//base on this schedule the rendez-vous
+    private Prescription prescription;
     private String state="Waiting";
-    public RendezVous(int idRv, Patient patient) {
+    public RendezVous(int idRv, Patient patient,Prescription prescription) {
         this.idRv = idRv;
         this.patient = patient;
+        this.prescription = prescription;
         //static because every patient will give his prescrption
     }
     private void scheduleRDV(){
@@ -60,6 +61,12 @@ public class RendezVous {
     public void setState(String state) {
         this.state = state;
     }
-
+    @Override
+    public String toString() {
+        return "Rendez Vous Details : \n"+
+                "Patient CIN : "+patient.getCIN()+"\nPatient Name : "+patient.getNom()+
+                " "+patient.getPrenom()+
+                "\n"+prescription+"\nState : "+state+"\n Date : "+date;
+    }
 
 }

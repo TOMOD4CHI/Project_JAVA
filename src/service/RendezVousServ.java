@@ -4,6 +4,7 @@ import entity.Calendrier;
 import entity.Radiologue;
 import entity.RendezVous;
 import entity.Salle;
+import ihm.Output;
 import persistance.PersCalendrier;
 import persistance.PersRendezVous;
 import service.RadiologueServ;
@@ -20,8 +21,8 @@ public class RendezVousServ {
     private PersRendezVous persRendezVous = new PersRendezVous();
 
     public RendezVous scheduleRendezVous(RendezVous newRendezVous) {
-        List<Radiologue> radiologues = radiologueServ.listAllRadiologues();
-        List<Salle> salles = salleServ.listAllSalles();
+        List<Radiologue> radiologues = (List<Radiologue>)radiologueServ.listAllRadiologues().getObj();
+        List<Salle> salles = (List<Salle>)salleServ.listAllSalles().getObj();
 
         LocalDateTime startDateTime = LocalDateTime.now();
         Radiologue radiologueEntry=null;
@@ -104,13 +105,18 @@ public class RendezVousServ {
     public void removeRendezVous(int IdR){
         persRendezVous.remove(IdR);
     }
-    public void viewRdv(int IdR){
-        persRendezVous.getRendezVous(IdR);
+    public Output viewRdv(int IdR){
+        RendezVous rdv=persRendezVous.getRendezVous(IdR);
+        if(rdv==null){
+            return new Output(false,"No Rendez-Vous Found",null);
+        }
+        return new Output(true,"",rdv);
     }
-    public List<RendezVous> listAllRendezVous(){
-        return persRendezVous.getAllRendezVous();
+    public Output listAllRendezVous(){
+        return new Output(true,"List Of Rendez-Vous : \n",persRendezVous.getAllRendezVous());
     }
-    public List<RendezVous> showRendezVousbyPatient(int CIN){
-        return persRendezVous.getRendezVousByPatient(CIN);
+    public Output showRendezVousbyPatient(int CIN){
+        return new Output(true,"---- Rendez Vous -----\n",persRendezVous.getRendezVousByPatient(CIN));
     }
+
 }

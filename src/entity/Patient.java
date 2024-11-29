@@ -44,5 +44,12 @@ public class Patient extends Personne{
     public void setDossier(Dossier dossier) {
         this.dossier = dossier;
     }
+    @Override
+    public String toString() {
+        return
+                super.toString()+
+                "\nDate De Naissance : " + this.dateDeNaissance+
+                "\nAdresse : " + adresse;
+    }
 }
 

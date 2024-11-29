@@ -1,44 +1,47 @@
 package service;
 import entity.Patient;
+import ihm.Output;
 import persistance.*;
 
 public class PatientServ {
     PersPatient persPatient=new PersPatient();
-    public void addPatient(Patient p) {
-        persPatient.add(p);
+    public Output addPatient(Patient p) {
+        if(viewPatient(p.getCIN()).getObj()==null) {
+            persPatient.add(p);
+            return new Output(true,"Patient added Succesfully",null);
+        }
+        return new Output(false,"Patient already exists",null);
     }
-    public boolean removePatient(int CIN){
+    public Output removePatient(int CIN){
         Patient patient = (Patient) persPatient.getPatient(CIN);
         if (patient != null) {
             persPatient.remove(patient);
-            //System.out.println("Patient removed successfully!");
-            return true;
+            return new Output(true,"Patient removed successfully!",null);
         } else {
-                return false;
-            //System.out.println("Patient not found!");
+                return new Output(false,"Patient not found!",null);
         }
         }
-        public  void viewPatient(int CIN) {
+        public  Output viewPatient(int CIN) {
         Patient patient = (Patient) persPatient.getPatient(CIN);
         if (patient != null) {
-            System.out.println("Patient Details:");
-            System.out.println("Name: " + patient.getNom() + " " + patient.getPrenom());
-            System.out.println("Phone: " + patient.getNumTelephone());
-            System.out.println("Address: " + patient.getAdresse());
-            System.out.println("Date of Birth: " + patient.getDateDeNaissance());
+            return new Output(true,"",patient);
         } else {
-
-            System.out.println("Patient not found!");
+            return new Output(false,"Patient not found!",null);
         }
     }
 
-    public void listAllPatients() {
+    public Output listAllPatients() {
         System.out.println("--- ALL PATIENTS ---");
-        for(Patient patient : persPatient.getAllPatients()) {
-            viewPatient(patient.getCIN());
+        if(persPatient.getAllPatients()==null) {
+            return new Output(true,"No Patient found !",null);
         }
+        return new Output(true,"",persPatient.getAllPatients());
     }
-    public boolean modifyPatient(int idT, Patient p){
-        return persPatient.modify(idT,p);
+    public Output modifyPatient(int idT, Patient p){
+        if(viewPatient(idT).getObj()==null) {
+            return new Output(false,"Patient not found!",null);
+        }
+        persPatient.modify(idT,p);
+        return new Output(true,"Modified Patient Succesfully",null);
     }
 }

@@ -2,6 +2,7 @@ package service;
 
 import entity.Salle;
 import entity.Technicien;
+import ihm.Output;
 import persistance.PersSalle;
 
 import java.util.List;
@@ -9,59 +10,45 @@ import java.util.List;
 public class SalleServ {
     PersSalle persSalle = new PersSalle();
 
-    public void addSalle(Salle s) {
+    public Output addSalle(Salle s) {
+        if(viewSalle(s.getNum()).getObj()==null){
         persSalle.add(s);
+        return new Output(true,"Salle added Succesfully",null);
+        }
+        return new Output(false,"Salle with this  number already exists",null);
     }
 
-    public boolean removeSalle(int salleNum) {
+    public Output removeSalle(int salleNum) {
         Salle salle = persSalle.getSalle(salleNum);
         if (salle != null) {
             persSalle.remove(salleNum);
-            return true;
+            return new Output(true,"Salle removed Succesfully",null);
         } else {
-            return false;
+            return new Output(false,"Salle with this  number does not exist",null);
         }
     }
 
-    public void viewSalle(int salleNum) {
+    public Output viewSalle(int salleNum) {
         Salle salle = persSalle.getSalle(salleNum);
         if (salle != null) {
-            System.out.println("Salle Details:");
-            System.out.println("Numero Salle: " + salle.getNum());
-
-            // Display techniciens if present
-            Technicien[] techniciens = salle.getTechnicien();
-            if (techniciens != null && techniciens.length > 0) {
-                System.out.println("Techniciens in this Salle:");
-                for (Technicien technicien : techniciens) {
-                    System.out.println(" - Technicien ID: " + technicien.getIdT());
-                    System.out.println(" - Technicien Full Name: " + technicien.getNom()+" "+technicien.getPrenom());
-                }
-            } else {
-                System.out.println("No techniciens assigned to this Salle.");
-            }
+            return new Output(true,"",salle);
         } else {
-            System.out.println("Salle not found!");
+            return new Output(false,"Salle not found!",null);
         }
     }
 
-    public List<Salle> listAllSalles() {
-        System.out.println("--- ALL SALLES ---");
+    public Output listAllSalles() {
         if (persSalle.getAll() != null) {
-            for (Salle salle : persSalle.getAll()) {
-                viewSalle(salle.getNum());
-                System.out.println("---");
-                return persSalle.getAll();
-            }
+           return new Output(true,"--- ALL SALLES ---\n",persSalle.getAll());
         } else {
-            System.out.println("No salles found.");
+            return new Output(false,"No salles found.",null);
         }
-        return null;
     }
 
     public void addTechnicienToSalle(int salleNum, Technicien technicien) {
         persSalle.addTechnicienToSalle(salleNum, technicien);
         TechnicienServ technicienServ= new TechnicienServ();
+        removeTechnicienFromSalle(technicien.getSalle_attribuer(),technicien.getIdT());
         technicien.setSalle_attribuer(salleNum);
         technicienServ.modifyTechnicien(technicien.getIdT(), technicien);
     }

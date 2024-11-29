@@ -29,7 +29,7 @@ public class RendezVousIhm {
         Patient patient=PatientIhm.addPatient();
         System.out.println("Type The Prescription : ");
         Prescription prescription=generatePrescription();
-        return new RendezVous(Idr,patient);
+        return new RendezVous(Idr,patient,prescription);
     }
     private static Prescription generatePrescription() {
         //need to check if the type exist in the categorie json file

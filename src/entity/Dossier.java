@@ -9,4 +9,9 @@ public class Dossier {
         res.put(prescription, rapport);
         this.results.add(res);
     }
+    //chouf 7al
+    @Override
+    public String toString() {
+        return "";
+    }
 }

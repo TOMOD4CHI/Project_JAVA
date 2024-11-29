@@ -24,4 +24,7 @@ public class Categorie {
     public void setPrix(double prix) {
         this.prix = prix;
     }
+    public String toString() {
+        return "\nNom : " + nom + "\nPrix : " + prix;
+    }
 }

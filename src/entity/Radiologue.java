@@ -2,8 +2,8 @@ package entity;
 
 public class Radiologue extends Personne{
     private int idR;
-    private Categorie specialite;//can be paired with categorie class
-    private  static double salaire;
+    private String specialite;//can be paired with categorie class
+    private  static double salaire=2000;
     //pass the categorie in constructor and get its  name to the specialite
     public Radiologue(String nom, String prenom, int numTelephone, String specialite, int idR) {
         super(nom, prenom, numTelephone);
@@ -21,11 +21,11 @@ public class Radiologue extends Personne{
         this.idR = idR;
     }
 
-    public Categorie getSpecialite() {
+    public String getSpecialite() {
         return specialite;
     }
 
-    public void setSpecialite(Categorie specialite) {
+    public void setSpecialite(String specialite) {
         this.specialite = specialite;
     }
 
@@ -36,5 +36,10 @@ public class Radiologue extends Personne{
     public static void setSalaire(double salaire) {
         Radiologue.salaire = salaire;
     }
-
+    @Override
+    public String toString() {
+        return super.toString()+
+                "\nSpecialite  : " + this.specialite+
+                "\nSalaire : " + salaire;
+    }
 }

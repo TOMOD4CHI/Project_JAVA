@@ -34,4 +34,9 @@ public class Personne {
         this.prenom = prenom;
         this.numTelephone = numTelephone;
     }
+    @Override
+    public String toString() {
+        return "Name : " + this.getNom() + " " + this.getPrenom()+
+                "\nPhone : " + this.getNumTelephone();
+    }
 }

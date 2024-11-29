@@ -2,42 +2,40 @@ package service;
 
 import entity.Radiologue;
 import entity.Radiologue;
+import ihm.Output;
 import persistance.PersRadiologue;
 
 import java.util.List;
 
 public class RadiologueServ {
     PersRadiologue persRadiologue=new PersRadiologue();
-    public void addRadiologue(Radiologue p) {
-        persRadiologue.add(p);
+    public Output addRadiologue(Radiologue p) {
+        if(viewRadiologue(p.getIdR()).getObj()==null) {
+            persRadiologue.add(p);
+            return new Output(false,"Radiologue added Succesfully ! ",null);
+        }
+        return new Output(false,"Radiologue already exists ! ",null);
+
     }
-    public boolean removeRadiologue(int idR){
+    public Output removeRadiologue(int idR){
         Radiologue Radiologue = (Radiologue) persRadiologue.getRadiologue(idR);
         if (Radiologue != null) {
             persRadiologue.remove(Radiologue);
-            //System.out.println("Radiologue removed successfully!");
-            return true;
+            return new Output(true,"Radiologue removed Succesfully ! ",null);
         } else {
-            return false;
-            //System.out.println("Radiologue not found!");
+            return new Output(false,"Radiologue does not exist ! ",null);
         }
     }
-    public  void viewRadiologue(int idR) {
+    public Output viewRadiologue(int idR) {
         Radiologue radiologue = (Radiologue) persRadiologue.getRadiologue(idR);
         if (radiologue != null) {
-            System.out.println("Radiologue Details:");
-            System.out.println("Name: " + radiologue.getNom() + " " + radiologue.getPrenom());
-            System.out.println("Phone: " + radiologue.getNumTelephone());
-            System.out.println("Specialite: " + radiologue.getSpecialite().getNom());
-            System.out.println("Salaire : " + Radiologue.getSalaire());
+            return new Output(true,"",radiologue);
         } else {
-
-            System.out.println("Radiologue not found!");
+            return new Output(false,"Radiologue not found!",null);
         }
     }
 
-    public List<Radiologue> listAllRadiologues() {
-        System.out.println("--- ALL RadiologueS ---");
-        return persRadiologue.getAllRadiologue();
+    public Output listAllRadiologues() {
+        return new Output(true,"--- ALL RadiologueS ---\n",persRadiologue.getAllRadiologue());
     }
 }

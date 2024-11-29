@@ -47,7 +47,7 @@ public class CategorieIhm {
         System.out.println("\nEnter new details (press Enter to keep current value):");
 
         System.out.print("New Name (current: " + existingCategorie.getNom() + "): ");
-        String newNom = Verification.getValidName();
+        String newNom = scanner.nextLine();
         if (newNom.isEmpty()) {
             newNom = existingCategorie.getNom();
         }

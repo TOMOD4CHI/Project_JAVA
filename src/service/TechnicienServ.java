@@ -2,46 +2,43 @@ package service;
 
 import entity.Technicien;
 import entity.Technicien;
+import ihm.Output;
 import persistance.PersTechnicien;
 
 public class TechnicienServ {
     PersTechnicien persTechnicien=new PersTechnicien();
-    public void addTechnicien(Technicien p) {
+    public Output addTechnicien(Technicien p) {
+        if(viewTechnicien(p.getIdT()).getObj()==null){
         persTechnicien.add(p);
+        return new Output(true,"Technicien added Succesfully",null);
+        }
+        return new Output(false,"Technicien Already Exists",null);
     }
-    public boolean removeTechnicien(int idR){
+    public Output removeTechnicien(int idR){
         Technicien Technicien = (Technicien) persTechnicien.getTechnicien(idR);
         if (Technicien != null) {
             persTechnicien.remove(Technicien);
-            //System.out.println("Technicien removed successfully!");
-            return true;
+            return new Output(true,"Technicien removed",null);
         } else {
-            return false;
-            //System.out.println("Technicien not found!");
+            return new Output(false,"Technicien not found",null);
         }
     }
-    public  Technicien viewTechnicien(int idR) {
+    public Output viewTechnicien(int idR) {
         Technicien technicien = (Technicien) persTechnicien.getTechnicien(idR);
         if (technicien != null) {
-            System.out.println("Technicien Details:");
-            System.out.println("Name: " + technicien.getNom() + " " + technicien.getPrenom());
-            System.out.println("Phone: " + technicien.getNumTelephone());
-            System.out.println("Num Salle : " + technicien.getSalle_attribuer());
-            System.out.println("Salaire : " + Technicien.getSalaire());
-            return technicien;
+            return new Output(true,"",technicien);
         } else {
-            System.out.println("Technicien not found!");
-            return null;
+            return new Output(false,"Technicien not found!",null);
         }
     }
 
-    public void listAllTechniciens() {
-        System.out.println("--- ALL TechnicienS ---");
-        for(Technicien Technicien : persTechnicien.getAllTechnicien()) {
-            viewTechnicien(Technicien.getIdT());
-        }
+    public Output listAllTechniciens() {
+        return new Output(true,"--- ALL TechnicienS ---\n",persTechnicien.getAll());
     }
-    public boolean modifyTechnicien(int idT,Technicien t){
-        return persTechnicien.modify(idT,t);
+    public Output modifyTechnicien(int idT,Technicien t){
+        if(persTechnicien.modify(idT,t)){
+            return new Output(true,"Technicien modified Succesfully",null);
+        }
+        return new Output(false,"Technicien not found",null);
     }
 }

@@ -113,10 +113,10 @@ public class PersTechnicien {
     }
 
     
-    public Personne getAll() {
+    public List<Technicien> getAll() {
         try {
             List<Technicien> technicienList = readTechniciens();
-            return !technicienList.isEmpty() ? technicienList.get(0) : null;
+            return !technicienList.isEmpty() ? technicienList : null;
         } catch (IOException e) {
             e.printStackTrace();
             return null;
