@@ -12,7 +12,7 @@ public class RadiologueServ {
     public Output addRadiologue(Radiologue p) {
         if(viewRadiologue(p.getIdR()).getObj()==null) {
             persRadiologue.add(p);
-            return new Output(false,"Radiologue added Succesfully ! ",null);
+            return new Output(true,"Radiologue added Succesfully ! ",null);
         }
         return new Output(false,"Radiologue already exists ! ",null);
 

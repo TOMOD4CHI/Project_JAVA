@@ -1,11 +1,9 @@
 package service;
 
-import entity.Calendrier;
-import entity.Radiologue;
-import entity.RendezVous;
-import entity.Salle;
+import entity.*;
 import ihm.Output;
 import persistance.PersCalendrier;
+import persistance.PersExamen;
 import persistance.PersRendezVous;
 import service.RadiologueServ;
 import service.SalleServ;
@@ -19,6 +17,18 @@ public class RendezVousServ {
     private SalleServ salleServ = new SalleServ();
     private PersCalendrier persCalendrier = new PersCalendrier();
     private PersRendezVous persRendezVous = new PersRendezVous();
+    private CategorieServ categorieServ = new CategorieServ();
+    private PersExamen persExamen=new PersExamen();
+
+    public Output check_existanceOfTreatment(RendezVous rendezVous) {
+        if(categorieServ.viewCategorie(rendezVous.getPrescription().getTraitement()).istrue()){
+            return new Output(true,"",null);
+        }
+        else{
+            return new Output(false,"Treatement "+rendezVous.getPrescription().getTraitement()+" unavailable in our center :(",null);
+        }
+    }
+
 
     public RendezVous scheduleRendezVous(RendezVous newRendezVous) {
         List<Radiologue> radiologues = (List<Radiologue>)radiologueServ.listAllRadiologues().getObj();
@@ -47,6 +57,7 @@ public class RendezVousServ {
             if(isTimeSlotAvailable(radiologueEntry, formattedDateTime) && isTimeSlotAvailable(salleEntry, formattedDateTime)) {
                 persCalendrier.add(new Calendrier(radiologueEntry,salleEntry,formattedDateTime));
                 persRendezVous.add(newRendezVous);
+                persExamen.add(new Examen(newRendezVous.getIdRv(),newRendezVous.getPatient(),radiologueEntry,(Categorie)categorieServ.viewCategorie(newRendezVous.getPrescription().getTraitement()).getObj(),salleEntry));
 
                 return newRendezVous;
             }
@@ -102,8 +113,13 @@ public class RendezVousServ {
                                   LocalDateTime start2, LocalDateTime end2) {
         return !start1.isAfter(end2) && !start2.isAfter(end1);
     }
-    public void removeRendezVous(int IdR){
-        persRendezVous.remove(IdR);
+    public Output cancelRendezVous(int IdR){
+        if(viewRdv(IdR).istrue()){
+        persRendezVous.cancelRendezVous(IdR);
+        persExamen.remove(IdR);
+        return new Output(true,"Rendez Vous Canceled Succesfully ! ",null);
+        }
+        return new Output(false,"Rendez Vous Not Found ! ",null);
     }
     public Output viewRdv(int IdR){
         RendezVous rdv=persRendezVous.getRendezVous(IdR);
@@ -117,6 +133,15 @@ public class RendezVousServ {
     }
     public Output showRendezVousbyPatient(int CIN){
         return new Output(true,"---- Rendez Vous -----\n",persRendezVous.getRendezVousByPatient(CIN));
+    }
+    public Output showRendezVousByState(String state) {
+        List<RendezVous> rdvsByState = persRendezVous.getRendezVousByState(state);
+
+        if (rdvsByState == null || rdvsByState.isEmpty()) {
+            return new Output(false, "No Rendez-Vous found with state: " + state, null);
+        }
+
+        return new Output(true, "---- Rendez-Vous with State: " + state + " ----\n", rdvsByState);
     }
 
 }

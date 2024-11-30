@@ -66,7 +66,7 @@ public class RendezVous {
         return "Rendez Vous Details : \n"+
                 "Patient CIN : "+patient.getCIN()+"\nPatient Name : "+patient.getNom()+
                 " "+patient.getPrenom()+
-                "\n"+prescription+"\nState : "+state+"\n Date : "+date;
+                "\n"+prescription+"\nState : "+state+"\n Date : "+date+"\n--------\n";
     }
 
 }

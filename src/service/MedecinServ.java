@@ -34,10 +34,9 @@ public class MedecinServ {
     }
 
     public Output listAllMedecins() {
-        System.out.println("--- ALL MedecinS ---");
         if(persMedecin.getAllMedecin()==null){
-            return new Output(true,"All Medecin List is Empty",null);
+            return new Output(false,"All Medecin List is Empty",null);
         }
-        return new Output(true,"",persMedecin.getAllMedecin());
+        return new Output(true,"--- ALL MedecinS ---\n",persMedecin.getAllMedecin());
     }
 }

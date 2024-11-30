@@ -31,11 +31,10 @@ public class PatientServ {
     }
 
     public Output listAllPatients() {
-        System.out.println("--- ALL PATIENTS ---");
         if(persPatient.getAllPatients()==null) {
             return new Output(true,"No Patient found !",null);
         }
-        return new Output(true,"",persPatient.getAllPatients());
+        return new Output(true,"--- ALL PATIENTS ---\n",persPatient.getAllPatients());
     }
     public Output modifyPatient(int idT, Patient p){
         if(viewPatient(idT).getObj()==null) {

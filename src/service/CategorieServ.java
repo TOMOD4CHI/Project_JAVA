@@ -11,7 +11,6 @@ public class CategorieServ {
 
     public Output addCategorie(Categorie c) {
         if (c != null) {
-            // Check if category with same name already exists
             if (persCategorie.getCategorie(c.getNom()) != null) {
                 return new Output(false,"Category with this name already exists!",null);
             }
@@ -34,12 +33,8 @@ public class CategorieServ {
     public Output viewCategorie(String nom) {
         Categorie categorie = persCategorie.getCategorie(nom);
         if (categorie != null) {
-            /*System.out.println("Category Details:");
-            System.out.println("Name: " + categorie.getNom());
-            System.out.println("Price: " + categorie.getPrix());*/
             return new Output(true,"",categorie);
         } else {
-            //System.out.println("Category not found!");
             return new Output(false,"Category not found!",null);
         }
     }

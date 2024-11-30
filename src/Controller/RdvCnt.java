@@ -16,11 +16,16 @@ public class RdvCnt {
             switch (choice) {
                 case 1:
                     RendezVous rendezVous = RendezVousIhm.addRendezVous();
-                    rendezVousServ.scheduleRendezVous(rendezVous);
+                    if(rendezVousServ.check_existanceOfTreatment(rendezVous).istrue()) {
+                        rendezVousServ.scheduleRendezVous(rendezVous);
+                    }
+                    else {
+                        rendezVousServ.check_existanceOfTreatment(rendezVous).showoutput();
+                    }
                     break;
                 case 2:
                     IdR = RendezVousIhm.removeRendezVous();
-                    rendezVousServ.removeRendezVous(IdR);
+                    rendezVousServ.cancelRendezVous(IdR);
                     break;
                 case 3:
                     IdR = RendezVousIhm.viewRendezVous();
@@ -29,7 +34,6 @@ public class RdvCnt {
                 case 4:
                     rendezVousServ.listAllRendezVous().showoutput();
                     break;
-                //add view by patient and update
                 case 5:
                     int CIN = PatientIhm.viewPatient();
                     rendezVousServ.showRendezVousbyPatient(CIN).showoutput();

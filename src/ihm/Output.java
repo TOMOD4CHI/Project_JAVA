@@ -13,7 +13,7 @@ public class Output {
         this.obj = obj;
     }
 
-    public boolean isSuccess() { return status; }
+    public boolean istrue() { return status; }
     public String getMessage() {
         return message;
     }

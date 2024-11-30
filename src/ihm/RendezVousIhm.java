@@ -9,7 +9,7 @@ public class RendezVousIhm {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n--- Rendez-Vous MANAGEMENT ---");
         System.out.println("1. Add Rendez-Vous");
-        System.out.println("2. Remove Rendez-Vous ");
+        System.out.println("2. Cancel Rendez-Vous ");
         System.out.println("3. View Rendez-Vous");
         System.out.println("4. List All Rendez-Vous");
         System.out.println("5. Show Rendez-Vous by Patient");
@@ -40,7 +40,7 @@ public class RendezVousIhm {
         return new Prescription(type, medecin);
     }
     public static int removeRendezVous() {
-        System.out.print("Enter Rdv ID to remove: ");
+        System.out.print("Enter Rdv ID to cancel: ");
         return Verification.getValidID();
     }
 

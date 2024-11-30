@@ -37,6 +37,9 @@ public class Controller {
                     s.showSalleMenu();
                     break;
                 case 8:
+                    ExamenCnt e = new ExamenCnt();
+                    e.showExamenMenu();
+                case 9:
                     System.out.println("Exiting Administration System...");
                     return;
                 default:

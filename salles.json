@@ -1,17 +1,18 @@
 [
   {
     "num": 5,
+    "technicien": []
+  },
+  {
+    "num": 789,
     "technicien": [
       {
         "idT": 111,
-        "salle_attribuer": 4,
+        "salle_attribuer": 5,
         "nom": "fdfd",
         "prenom": "fdf",
         "numTelephone": 5
       }
     ]
-  },
-  {
-    "num": 2
   }
 ]

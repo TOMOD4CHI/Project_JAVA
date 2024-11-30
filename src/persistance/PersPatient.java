@@ -52,12 +52,9 @@ public class PersPatient{
                     existingPatient.setDateDeNaissance(updatedPatient.getDateDeNaissance());
 
                     writePatients(patientList);
-                    System.out.println("Patient updated successfully.");
                     return true;
                 }
             }
-
-            System.out.println("Patient not found.");
             return false;
         } catch (IOException e) {
             e.printStackTrace();
@@ -126,8 +123,6 @@ public class PersPatient{
     public void update(int id) {
         try {
             List<Patient> patientList = readPatients();
-
-            // Find the patient to update
             Patient patientToUpdate = patientList.stream()
                     .filter(patient -> patient.getCIN() == id)
                     .findFirst()

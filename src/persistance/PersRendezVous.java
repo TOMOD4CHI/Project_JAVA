@@ -34,10 +34,17 @@ public class PersRendezVous {
         }
     }
 
-    public void remove(int idRv) {
+    public void cancelRendezVous(int idRv) {
         try {
             List<RendezVous> rendezvousList = readRendezVous();
-            rendezvousList.removeIf(rdv -> rdv.getIdRv() == idRv);
+            rendezvousList = rendezvousList.stream()
+                    .map(rdv -> {
+                        if (rdv.getIdRv() == idRv) {
+                            rdv.setState("Canceled");
+                        }
+                        return rdv;
+                    })
+                    .collect(Collectors.toList());
             writeRendezVous(rendezvousList);
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,6 +1,10 @@
 [
   {
     "nom": "IRM",
-    "prix": 1500.0
+    "prix": 550.0
+  },
+  {
+    "nom": "Scanner",
+    "prix": 500.0
   }
 ]
