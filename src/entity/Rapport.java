@@ -1,6 +1,6 @@
 package entity;
 
-public class Rapport {
+public class Rapport{
     private String contenu="No Rapport for now !";
     private Radiologue radiologue;
 

@@ -1,8 +1,5 @@
 package entity;
-
-//change this class to entity.Dossier
-//medecin gives a prescription (what type of treatement to do ) not a medicine(dwee)
-public class Prescription {
+public class Prescription{
     private Medecin medecin;
     private String traitement;
 
@@ -14,7 +11,7 @@ public class Prescription {
     @Override
     public String toString() {
         return "Prescipter par le Medecin  " + medecin.getNom()+" "+medecin.getPrenom() +
-                "\nType de traitement: " + traitement;
+                "\nType de traitement: " + traitement+"\n";
     }
 
     public String getTraitement() {

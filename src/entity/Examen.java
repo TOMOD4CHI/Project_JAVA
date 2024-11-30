@@ -14,6 +14,7 @@ public class Examen {
         this.patient = patient;
         this.radiologue = radiologue;
         this.categorie = categorie;
+        this.salle = salle;
     }
 
     public int getIdRDV() {
@@ -79,7 +80,7 @@ public class Examen {
         else{
             r=rapport.toString();
         }
-        return "Examens Details : "+
+        return "Examens Details : \n"+
                 "Id : "+idRDV +"\n"+
                 "Patient : "+patient.getNom() +" "+patient.getPrenom()+
                 "\nRadiologue : "+radiologue.getNom()+" "+radiologue.getPrenom()+

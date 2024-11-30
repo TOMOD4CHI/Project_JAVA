@@ -22,19 +22,19 @@ public class PatientCnt {
                     patientServ.removePatient(CIN).showoutput();
                     break;
                 case 3:
-                    CIN = PatientIhm.viewPatient();
-                    patientServ.viewPatient(CIN).showoutput();
-                    break;
-                case 4:
-                    patientServ.listAllPatients().showoutput();
-                    break;
-                case 5:
                     int CIN = PatientIhm.viewPatient();
                     Patient existingPatient = (Patient) patientServ.viewPatient(CIN).getObj();
                     if (existingPatient != null) {
                         Patient updatedPatient = PatientIhm.modifyPatient(existingPatient);
                         patientServ.modifyPatient(CIN,updatedPatient).showoutput();
                     }
+                    break;
+                case 4:
+                    CIN = PatientIhm.viewPatient();
+                    patientServ.viewPatient(CIN).showoutput();
+                    break;
+                case 5:
+                    patientServ.listAllPatients().showoutput();
                     break;
                 case 6:
                     return;

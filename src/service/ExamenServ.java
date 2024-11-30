@@ -1,13 +1,12 @@
 package service;
 
-import entity.Examen;
-import entity.Patient;
-import entity.Radiologue;
-import entity.RendezVous;
+import entity.*;
 import ihm.Output;
 import persistance.PersExamen;
+import persistance.PersPatient;
 import persistance.PersRendezVous;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ExamenServ {
@@ -15,6 +14,7 @@ public class ExamenServ {
     private PersRendezVous persRendezVous=new PersRendezVous();
     private RadiologueServ radiologueServ= new RadiologueServ();
     private PatientServ patientServ= new PatientServ();
+    private PersPatient persPatient=new PersPatient();
 
 
     public Output getAllExamensByState(String state) {
@@ -24,7 +24,20 @@ public class ExamenServ {
         }
         return new Output(true,"---- List of "+state+" Exams ----\n",persExamen.getExamensByRendezVousState(state));
     }
-
+    private void updatePatientDossier(Patient patient, Rapport rapport) {
+        Dossier dossier = patient.getDossier();
+        ArrayList<Generatable> results = dossier.getResults();
+        if (results == null || results.isEmpty()) {
+            return;
+        }
+        Generatable current = results.get(results.size() - 1);
+        if (current.getRapport() == null) {
+            current.setRapport(rapport);
+            results.set(results.size() - 1, current);
+            dossier.setResults(results);
+            patient.setDossier(dossier);
+        }
+    }
     public Output performExamen(int idRDV) {
         try {
             Examen examen = persExamen.getExamen(idRDV);
@@ -43,10 +56,12 @@ public class ExamenServ {
             rendezVous.setState("Done");
             persRendezVous.updateRendezVous(rendezVous);
 
-            // Hnee zid l compte rendu ll patient w zid l flous $ fl finance
-            System.out.println("Examen completed for ID: " + idRDV);
+            // Hnee zid l compte rendu ll patient w zid l flous $ fl finance(PDF maybe zeda)
+            Patient patient = rendezVous.getPatient();
+            updatePatientDossier(patient, examen.getRapport());
+            persPatient.modify(patient.getCIN(), patient);
 
-            return new Output(true,"Examen completed for ID: " + idRDV,null);
+            return new Output(true, "Examen completed for ID: " + idRDV, null);
         } catch (NumberFormatException e) {
             return new Output(false,"Invalid Rendez-Vous ID format: " + idRDV,null);
         } catch (Exception e) {

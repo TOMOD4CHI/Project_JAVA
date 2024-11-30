@@ -1,1 +1,36 @@
-[]
+[
+  {
+    "adresse": "fsdfsdf",
+    "CIN": 10254787,
+    "dateDeNaissance": "20/78/2000",
+    "dossier": {
+      "results": [
+        {
+          "prescription": {
+            "medecin": {
+              "idM": 78,
+              "specialite": "fsf",
+              "contact": "sfsf@dfdf.df",
+              "nom": "idk",
+              "prenom": "idk",
+              "numTelephone": 20154896
+            },
+            "traitement": "IRM"
+          },
+          "rapport": {
+            "contenu": "lbas",
+            "radiologue": {
+              "idR": 78,
+              "nom": "fdsf",
+              "prenom": "fl",
+              "numTelephone": 44555544
+            }
+          }
+        }
+      ]
+    },
+    "nom": "fouleni",
+    "prenom": "flen",
+    "numTelephone": 20456987
+  }
+]

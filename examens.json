@@ -1,13 +1,16 @@
 [
   {
-    "idRDV": 111,
+    "idRDV": 45,
     "patient": {
-      "adresse": "fsdfs",
-      "CIN": 12345678,
-      "dateDeNaissance": "88/88/7777",
-      "nom": "fsdfs",
-      "prenom": "fsdf",
-      "numTelephone": 45454545
+      "adresse": "fsdfsdf",
+      "CIN": 10254787,
+      "dateDeNaissance": "20/78/2000",
+      "dossier": {
+        "results": []
+      },
+      "nom": "fouleni",
+      "prenom": "flen",
+      "numTelephone": 20456987
     },
     "radiologue": {
       "idR": 78,
@@ -15,13 +18,13 @@
       "prenom": "fl",
       "numTelephone": 44555544
     },
-    "categorie": {
-      "nom": "IRM",
-      "prix": 550.0
-    },
     "salle": {
       "num": 5,
       "technicien": []
+    },
+    "categorie": {
+      "nom": "IRM",
+      "prix": 550.0
     }
   }
 ]

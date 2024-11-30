@@ -50,7 +50,7 @@ public class PersPatient{
                     existingPatient.setNumTelephone(updatedPatient.getNumTelephone());
                     existingPatient.setAdresse(updatedPatient.getAdresse());
                     existingPatient.setDateDeNaissance(updatedPatient.getDateDeNaissance());
-
+                    existingPatient.setDossier(updatedPatient.getDossier());
                     writePatients(patientList);
                     return true;
                 }

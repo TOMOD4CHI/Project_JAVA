@@ -49,7 +49,7 @@ public class PatientIhm {
     }
 
     public static int viewPatient() {
-        System.out.print("Enter Patient CIN to view: ");
+        System.out.print("Enter Patient CIN : ");
         int cin = Verification.getValidCIN();
 
         return cin;

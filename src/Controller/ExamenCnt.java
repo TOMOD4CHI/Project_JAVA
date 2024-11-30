@@ -29,6 +29,7 @@ public class ExamenCnt {
                     examenServ.getExamensByPatient(cin).showoutput();
                     break;
                 case 6:
+                    //this doesnt work idk why it ends the whole program
                     return;
                 default:
                     System.out.println("Invalid choice. Please try again.");

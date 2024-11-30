@@ -39,7 +39,6 @@ public class RdvCnt {
                     rendezVousServ.showRendezVousbyPatient(CIN).showoutput();
                     break;
                 case 6:
-                    System.out.println("Exiting ...");
                     return;
                 default:
                     System.out.println("Invalid choice. Please try again.");

@@ -26,6 +26,7 @@ public class ExamenIhm {
         return idRDV;
     }
 
+
     public static int viewExamsByRadiologue() {
         System.out.print("Enter Radiologist ID: ");
         int idRadiologue = Verification.getValidID();

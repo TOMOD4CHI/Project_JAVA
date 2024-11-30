@@ -10,6 +10,8 @@ import service.SalleServ;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class RendezVousServ {
@@ -19,6 +21,8 @@ public class RendezVousServ {
     private PersRendezVous persRendezVous = new PersRendezVous();
     private CategorieServ categorieServ = new CategorieServ();
     private PersExamen persExamen=new PersExamen();
+    private PatientServ patientServ = new PatientServ();
+    private MedecinServ medecinServ = new MedecinServ();
 
     public Output check_existanceOfTreatment(RendezVous rendezVous) {
         if(categorieServ.viewCategorie(rendezVous.getPrescription().getTraitement()).istrue()){
@@ -28,8 +32,20 @@ public class RendezVousServ {
             return new Output(false,"Treatement "+rendezVous.getPrescription().getTraitement()+" unavailable in our center :(",null);
         }
     }
+    private void updatePatientDossier(Patient patient, Prescription prescription) {
+        Dossier dossier = patient.getDossier();
+        ArrayList<Generatable> results = dossier.getResults();
 
+        if (results == null) {
+            results = new ArrayList<>();
+        }
 
+        Generatable newEntry = new Generatable(prescription, null);
+        results.add(newEntry);
+
+        dossier.setResults(results);
+        patient.setDossier(dossier);
+    }
     public RendezVous scheduleRendezVous(RendezVous newRendezVous) {
         List<Radiologue> radiologues = (List<Radiologue>)radiologueServ.listAllRadiologues().getObj();
         List<Salle> salles = (List<Salle>)salleServ.listAllSalles().getObj();
@@ -56,9 +72,22 @@ public class RendezVousServ {
             }
             if(isTimeSlotAvailable(radiologueEntry, formattedDateTime) && isTimeSlotAvailable(salleEntry, formattedDateTime)) {
                 persCalendrier.add(new Calendrier(radiologueEntry,salleEntry,formattedDateTime));
-                persRendezVous.add(newRendezVous);
                 persExamen.add(new Examen(newRendezVous.getIdRv(),newRendezVous.getPatient(),radiologueEntry,(Categorie)categorieServ.viewCategorie(newRendezVous.getPrescription().getTraitement()).getObj(),salleEntry));
-
+                if (!patientServ.viewPatient(newRendezVous.getPatient().getCIN()).istrue()) {
+                    Patient patient = newRendezVous.getPatient();
+                    updatePatientDossier(patient, newRendezVous.getPrescription());
+                    patientServ.addPatient(patient);
+                    newRendezVous.setPatient(patient);
+                } else {
+                    Patient patient = newRendezVous.getPatient();
+                    updatePatientDossier(patient, newRendezVous.getPrescription());
+                    patientServ.modifyPatient(patient.getCIN(), patient);
+                    newRendezVous.setPatient(patient);
+                }
+                if(!medecinServ.viewMedecin(newRendezVous.getPrescription().getMedecin().getIdM()).istrue()){
+                    medecinServ.addMedecin(newRendezVous.getPrescription().getMedecin());
+                }
+                persRendezVous.add(newRendezVous);
                 return newRendezVous;
             }
             startDateTime = startDateTime.plusHours(1);

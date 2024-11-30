@@ -5,7 +5,7 @@ public class Patient extends Personne{
     private String adresse;
     private int CIN;
     private String dateDeNaissance;
-    private Dossier dossier;
+    private Dossier dossier=new Dossier();
 
 
     public Patient(String nom, String prenom, int numTelephone, String adresse, int CIN, String dateDeNaissance, Dossier dossier) {
@@ -46,10 +46,12 @@ public class Patient extends Personne{
     }
     @Override
     public String toString() {
-        return
+        return "CIN : " + CIN+"\n"+
                 super.toString()+
                 "\nDate De Naissance : " + this.dateDeNaissance+
-                "\nAdresse : " + adresse;
+                "\nAdresse : " + adresse+"\n"+
+                "\nDossier : \n" + dossier;
+
     }
 }
 

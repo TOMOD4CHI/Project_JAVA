@@ -63,7 +63,7 @@ public class RendezVous {
     }
     @Override
     public String toString() {
-        return "Rendez Vous Details : \n"+
+        return "\nRendez Vous Details : \n"+
                 "Patient CIN : "+patient.getCIN()+"\nPatient Name : "+patient.getNom()+
                 " "+patient.getPrenom()+
                 "\n"+prescription+"\nState : "+state+"\n Date : "+date+"\n--------\n";

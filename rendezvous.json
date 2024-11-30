@@ -1,74 +1,43 @@
 [
   {
-    "date": "2024-11-30T11:57:29.0777578",
+    "date": "2024-12-01T00:01:52.2870884",
     "idRv": 45,
     "patient": {
-      "adresse": "sdfsfs",
-      "CIN": 45781699,
-      "dateDeNaissance": "88/88/4564",
-      "nom": "fsfs",
-      "prenom": "fsfs",
-      "numTelephone": 15487664
+      "adresse": "fsdfsdf",
+      "CIN": 10254787,
+      "dateDeNaissance": "20/78/2000",
+      "dossier": {
+        "results": [
+          {
+            "prescription": {
+              "medecin": {
+                "idM": 78,
+                "specialite": "fsf",
+                "contact": "sfsf@dfdf.df",
+                "nom": "idk",
+                "prenom": "idk",
+                "numTelephone": 20154896
+              },
+              "traitement": "IRM"
+            }
+          }
+        ]
+      },
+      "nom": "fouleni",
+      "prenom": "flen",
+      "numTelephone": 20456987
     },
     "prescription": {
       "medecin": {
-        "idM": 7899,
-        "specialite": "sfsdfsd",
-        "contact": "fsdfs@sfsd.csqd",
-        "nom": "fsfsdf",
-        "prenom": "fjlskkfs",
-        "numTelephone": 45781255
+        "idM": 78,
+        "specialite": "fsf",
+        "contact": "sfsf@dfdf.df",
+        "nom": "idk",
+        "prenom": "idk",
+        "numTelephone": 20154896
       },
       "traitement": "IRM"
     },
-    "state": "Canceled"
-  },
-  {
-    "date": "2024-11-30T13:10:13.1860887",
-    "idRv": 111,
-    "patient": {
-      "adresse": "fsfsf",
-      "CIN": 12345678,
-      "dateDeNaissance": "44/88/7899",
-      "nom": "fsdfs",
-      "prenom": "fsdf",
-      "numTelephone": 45454545
-    },
-    "prescription": {
-      "medecin": {
-        "idM": 125,
-        "specialite": "sdfsfsd",
-        "contact": "dfsf@fdsf.df",
-        "nom": "fdsf",
-        "prenom": "fsfds",
-        "numTelephone": 12345678
-      },
-      "traitement": "IRM"
-    },
-    "state": "Waiting"
-  },
-  {
-    "date": "2024-11-30T14:19:27.8763885",
-    "idRv": 111,
-    "patient": {
-      "adresse": "fsdfs",
-      "CIN": 12345678,
-      "dateDeNaissance": "88/88/7777",
-      "nom": "fsdfs",
-      "prenom": "fsdf",
-      "numTelephone": 45454545
-    },
-    "prescription": {
-      "medecin": {
-        "idM": 1,
-        "specialite": "dsfdsf",
-        "contact": "fsdf@dfs.df",
-        "nom": "fsdfsd",
-        "prenom": "fsdfs",
-        "numTelephone": 41257841
-      },
-      "traitement": "IRM"
-    },
-    "state": "Waiting"
+    "state": "Done"
   }
 ]
