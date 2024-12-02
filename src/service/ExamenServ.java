@@ -2,9 +2,7 @@ package service;
 
 import entity.*;
 import ihm.Output;
-import persistance.PersExamen;
-import persistance.PersPatient;
-import persistance.PersRendezVous;
+import persistance.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +13,8 @@ public class ExamenServ {
     private RadiologueServ radiologueServ= new RadiologueServ();
     private PatientServ patientServ= new PatientServ();
     private PersPatient persPatient=new PersPatient();
+    private PersCategorie persCategorie=new PersCategorie();
+    private PersFinance persFinance=new PersFinance();
 
 
     public Output getAllExamensByState(String state) {
@@ -55,6 +55,11 @@ public class ExamenServ {
             }
             rendezVous.setState("Done");
             persRendezVous.updateRendezVous(rendezVous);
+            
+            double prix =persCategorie.getCategorie(rendezVous.getPrescription().getTraitement()).getPrix();
+            Finance finance =persFinance.getFinance();
+            finance.setRevenue(finance.getRevenue()+prix);
+            persFinance.saveFinance(finance);
 
             // Hnee zid l compte rendu ll patient w zid l flous $ fl finance(PDF maybe zeda)
             Patient patient = rendezVous.getPatient();

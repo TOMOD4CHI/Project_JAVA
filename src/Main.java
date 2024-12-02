@@ -1,15 +1,17 @@
 import Controller.*;
+import entity.Finance;
 import entity.Patient;
 import entity.Radiologue;
 import entity.Rapport;
+import persistance.PersFinance;
 import service.RadiologyReportPDF;
 
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
-        //Controller.init();
-        try {
+    public static void main(String[] args) throws IOException {
+        Controller.init();
+      /* try {
             // Create patient
             Patient patient = new Patient(
                     "Dupont",
@@ -32,7 +34,7 @@ public class Main {
             System.out.println("Rapport généré : " + rapportChemin);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 }

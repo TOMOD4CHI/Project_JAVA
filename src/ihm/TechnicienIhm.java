@@ -29,11 +29,9 @@ public class TechnicienIhm {
         String nom = Verification.getValidName();
         System.out.print("Phone Number: ");
         int numTelephone = Verification.getValidPhoneNumber();
-        System.out.print("Technicien ID: ");
-        int idT = Verification.getValidID();
         System.out.print("Num Salle: ");
         int numSalle = Verification.getValidID();
-        return new Technicien(nom, prenom, numTelephone, idT ,numSalle);
+        return new Technicien(nom, prenom, numTelephone, 0 ,numSalle);
     }
 
     public static int removeTechnicien() {

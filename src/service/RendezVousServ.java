@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class RendezVousServ {
+    private static int iD=0;
     private RadiologueServ radiologueServ = new RadiologueServ();
     private SalleServ salleServ = new SalleServ();
     private PersCalendrier persCalendrier = new PersCalendrier();
@@ -47,6 +48,7 @@ public class RendezVousServ {
         patient.setDossier(dossier);
     }
     public RendezVous scheduleRendezVous(RendezVous newRendezVous) {
+        newRendezVous.setIdRv(iD);
         List<Radiologue> radiologues = (List<Radiologue>)radiologueServ.listAllRadiologues().getObj();
         List<Salle> salles = (List<Salle>)salleServ.listAllSalles().getObj();
 
@@ -88,6 +90,7 @@ public class RendezVousServ {
                     medecinServ.addMedecin(newRendezVous.getPrescription().getMedecin());
                 }
                 persRendezVous.add(newRendezVous);
+                iD++;
                 return newRendezVous;
             }
             startDateTime = startDateTime.plusHours(1);

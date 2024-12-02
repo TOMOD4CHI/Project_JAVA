@@ -6,10 +6,13 @@ import ihm.Output;
 import persistance.PersTechnicien;
 
 public class TechnicienServ {
+    private static int iD=8756;
     PersTechnicien persTechnicien=new PersTechnicien();
     public Output addTechnicien(Technicien p) {
+        p.setIdT(iD++);
         if(viewTechnicien(p.getIdT()).getObj()==null){
         persTechnicien.add(p);
+        iD++;
         return new Output(true,"Technicien added Succesfully",null);
         }
         return new Output(false,"Technicien Already Exists",null);

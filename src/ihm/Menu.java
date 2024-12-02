@@ -17,7 +17,9 @@ public class Menu {
             System.out.println("7. Rendez-Vous Management");
             System.out.println("8. Salle Management");
             System.out.println("9. Examen Management");
-            System.out.println("10. Exit");
+            System.out.println("10. Finance Management");
+            System.out.println("11. Rapport Management");
+            System.out.println("12. Exit");
             System.out.print("Enter your choice: ");
         return scanner.nextInt();
     }

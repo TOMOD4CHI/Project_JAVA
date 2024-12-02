@@ -3,6 +3,11 @@ package entity;
 public class Finance {
     private double depense=0;
     private double revenue=0;
+    public Finance(double depense, double revenue) {
+        this.depense = depense;
+        this.revenue = revenue;
+    }
+    public Finance() {}
 
     public double getRevenue() {
         return revenue;

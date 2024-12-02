@@ -23,13 +23,10 @@ public class RendezVousIhm {
 
     public static RendezVous addRendezVous() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Id RendezVous : ");
-        int Idr= scanner.nextInt();
-        scanner.nextLine();
         Patient patient=PatientIhm.addPatient();
         System.out.println("Type The Prescription : ");
         Prescription prescription=generatePrescription();
-        return new RendezVous(Idr,patient,prescription);
+        return new RendezVous(0,patient,prescription);
     }
     private static Prescription generatePrescription() {
         //need to check if the type exist in the categorie json file

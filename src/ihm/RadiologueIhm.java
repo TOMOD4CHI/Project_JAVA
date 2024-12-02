@@ -30,10 +30,8 @@ public class RadiologueIhm {
         int numTelephone = Verification.getValidPhoneNumber();
         System.out.print("Specialty: ");
         String specialite = Verification.getValidName();
-        System.out.print("Radiologue ID: ");
-        int idR = Verification.getValidID();
 
-        return new Radiologue(nom, prenom, numTelephone, specialite,idR);
+        return new Radiologue(nom, prenom, numTelephone, specialite,0);
     }
 
     public static int removeRadiologue() {

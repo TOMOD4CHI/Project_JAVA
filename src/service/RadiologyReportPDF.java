@@ -18,8 +18,8 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class RadiologyReportPDF {
-    private CentreRadio centreRadio;
+public  class RadiologyReportPDF {
+    private  CentreRadio centreRadio;
 
     public RadiologyReportPDF() {
         // Retrieve centre details from service
@@ -35,7 +35,7 @@ public class RadiologyReportPDF {
         }
     }
 
-    public String genererRapport(Patient patient, Rapport rapport) throws IOException {
+    public  String genererRapport(Patient patient, Rapport rapport) throws IOException {
         // Generate filename using patient's details
         String horodatage = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
         String nomFichier = "rapport_" + patient.getNom() + "_" + patient.getCIN() + "_" + horodatage + ".pdf";

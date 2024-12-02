@@ -8,10 +8,13 @@ import persistance.PersRadiologue;
 import java.util.List;
 
 public class RadiologueServ {
+    private static int iD=1001;
     PersRadiologue persRadiologue=new PersRadiologue();
     public Output addRadiologue(Radiologue p) {
+        p.setIdR(iD);
         if(viewRadiologue(p.getIdR()).getObj()==null) {
             persRadiologue.add(p);
+            iD++;
             return new Output(true,"Radiologue added Succesfully ! ",null);
         }
         return new Output(false,"Radiologue already exists ! ",null);

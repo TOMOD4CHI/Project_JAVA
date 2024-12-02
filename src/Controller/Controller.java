@@ -4,8 +4,10 @@ import entity.Radiologue;
 import entity.RendezVous;
 import ihm.*;
 
+import java.io.IOException;
+
 public class Controller {
-    public static void init() {
+    public static void init() throws IOException {
         while (true) {
             int choice = Menu.displayMainMenu();
             switch (choice) {
@@ -44,6 +46,12 @@ public class Controller {
                     ExamenCnt e = new ExamenCnt();
                     e.showExamenMenu();
                 case 10:
+                    FinanceCnt f = new FinanceCnt();
+                    f.showFinanceMenu();
+                case 11:
+                    RapportCnt rp = new RapportCnt();
+                    rp.showRapportMenu();
+                case 12:
                     System.out.println("Exiting Administration System...");
                     return;
                 default:
