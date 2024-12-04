@@ -38,6 +38,7 @@ public class Controller {
                 case 7:
                     RdvCnt rdv = new RdvCnt();
                     rdv.showRdvMenu();
+                    break;
                 case 8:
                     SalleCnt s = new SalleCnt();
                     s.showSalleMenu();
@@ -45,12 +46,15 @@ public class Controller {
                 case 9:
                     ExamenCnt e = new ExamenCnt();
                     e.showExamenMenu();
+                    break;
                 case 10:
                     FinanceCnt f = new FinanceCnt();
                     f.showFinanceMenu();
+                    break;
                 case 11:
                     RapportCnt rp = new RapportCnt();
                     rp.showRapportMenu();
+                    break;
                 case 12:
                     System.out.println("Exiting Administration System...");
                     return;

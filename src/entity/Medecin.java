@@ -40,6 +40,6 @@ public class Medecin extends Personne{
         return
         super.toString()+
         "\nContact : " + this.contact+
-        "\nSpecialite : " + specialite;
+        "\nSpecialite : " + specialite+"\n--------------------------\n";
     }
 }

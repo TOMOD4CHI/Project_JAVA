@@ -9,7 +9,6 @@ import java.util.List;
 
 public class SalleServ {
     PersSalle persSalle = new PersSalle();
-
     public Output addSalle(Salle s) {
         if(viewSalle(s.getNum()).getObj()==null){
         persSalle.add(s);
@@ -55,5 +54,9 @@ public class SalleServ {
 
     public void removeTechnicienFromSalle(int salleNum, int technicienId) {
         persSalle.removeTechnicienFromSalle(salleNum, technicienId);
+        TechnicienServ technicienServ= new TechnicienServ();
+        Technicien technicien=(Technicien) technicienServ.viewTechnicien(technicienId).getObj();
+        technicien.setSalle_attribuer(0);
+        technicienServ.modifyTechnicien(technicienId, technicien);
     }
 }

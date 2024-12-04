@@ -1,20 +1,24 @@
 package Controller;
 
 
+import entity.Categorie;
 import entity.RendezVous;
 
 import ihm.*;
+import service.CategorieServ;
 import service.RendezVousServ;
 
 
 public class RdvCnt {
-    RendezVousServ rendezVousServ=new RendezVousServ();
-    int IdR;
     public void showRdvMenu() {
+        RendezVousServ rendezVousServ=new RendezVousServ();
+        CategorieServ categorieServ=new CategorieServ();
+        int IdR;
         while (true) {
             int choice = RendezVousIhm.RdvManagementMenu();
             switch (choice) {
                 case 1:
+                    categorieServ.listAllCategories().showoutput();
                     RendezVous rendezVous = RendezVousIhm.addRendezVous();
                     if(rendezVousServ.check_existanceOfTreatment(rendezVous).istrue()) {
                         rendezVousServ.scheduleRendezVous(rendezVous);

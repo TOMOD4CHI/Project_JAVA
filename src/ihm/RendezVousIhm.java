@@ -17,22 +17,21 @@ public class RendezVousIhm {
         System.out.print("Enter your choice: ");
 
         int choice = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
         return choice;
     }
 
     public static RendezVous addRendezVous() {
         Scanner scanner = new Scanner(System.in);
         Patient patient=PatientIhm.addPatient();
-        System.out.println("Type The Prescription : ");
+        System.out.println("Type The Prescription (From the list above :) ): ");
         Prescription prescription=generatePrescription();
         return new RendezVous(0,patient,prescription);
     }
     private static Prescription generatePrescription() {
-        //need to check if the type exist in the categorie json file
-        //else raise an excep
         System.out.println("Enter the traitement name:");
         String type = Verification.getValidName();
+        System.out.println("Enter the Docotr Name : ");
         Medecin medecin = MedecinIhm.addMedecin();
         return new Prescription(type, medecin);
     }

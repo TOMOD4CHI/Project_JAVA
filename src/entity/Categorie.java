@@ -25,6 +25,6 @@ public class Categorie {
         this.prix = prix;
     }
     public String toString() {
-        return "\nNom : " + nom + "\nPrix : " + prix;
+        return "\nNom : " + nom + "\nPrix : " + prix+"\n------------\n";
     }
 }

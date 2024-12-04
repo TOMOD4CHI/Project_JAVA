@@ -3,7 +3,7 @@ package entity;
 public class Technicien extends Personne{
     private int idT;
     private static double salaire=1500;
-    private int salle_attribuer;
+    private int salle_attribuer=0;
 
     public static double getSalaire() {
         return salaire;
@@ -34,7 +34,7 @@ public class Technicien extends Personne{
     public String toString() {
         return "Technicien Details:\n"+
                 super.toString()+
-                "\nSalle  : " + this.salle_attribuer+
+                "\nSalle  : " + ((this.salle_attribuer==0)? "No salle for now ":this.salle_attribuer)+
                 "\nSalaire : " + salaire+"\n-------\n";
     }
 }

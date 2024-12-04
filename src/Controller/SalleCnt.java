@@ -35,7 +35,6 @@ public class SalleCnt {
                     TechnicienServ technicienServ = new TechnicienServ();
                     HashMap<String, Integer> details = SalleIhm.addTechnicien();
                     if (!details.isEmpty()) {
-                        // first entry is technicien ID second is salle number
                         int salleNum = details.get("NumS");
                         Technicien technicien = (Technicien)technicienServ.viewTechnicien(details.get("IdT")).getObj();
                         salleServ.addTechnicienToSalle(salleNum, technicien);
@@ -44,7 +43,6 @@ public class SalleCnt {
                 case 6:
                     HashMap<String, Integer> rdetails = SalleIhm.removeTechnicien();
                     if (!rdetails.isEmpty()) {
-                        // first entry is technicien ID, second is salle number
                         int salleNum = rdetails.get("NumS");
                         int idT = rdetails.get("IdT");
                         salleServ.removeTechnicienFromSalle(salleNum, idT);
