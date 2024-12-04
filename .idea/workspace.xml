@@ -18,6 +18,21 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "TOMOD4CHI"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/TOMOD4CHI/Project_JAVA",
+    "accountId": "99226409-b44f-481d-bdb4-f067d66bed42"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -35,8 +50,9 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/DXRK/Downloads/gson-2.11.0.jar",
+    "last_opened_file_path": "C:/Users/DXRK/Documents/INFO/Bac++/CPI/CPI2/Java/Poject_Blue_Lock",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -68,6 +84,7 @@
       <updated>1732106893619</updated>
       <workItem from="1732106894756" duration="83000" />
       <workItem from="1732106989760" duration="6191000" />
+      <workItem from="1733294489251" duration="17000" />
     </task>
     <servers />
   </component>
