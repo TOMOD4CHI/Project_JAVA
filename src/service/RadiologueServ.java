@@ -1,20 +1,42 @@
 package service;
 
 import entity.Radiologue;
-import entity.Radiologue;
 import ihm.Output;
 import persistance.PersRadiologue;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 public class RadiologueServ {
-    private static int iD=1001;
+    CategorieServ categorieServ=new CategorieServ();
+    private Set<Integer> usedIds = new HashSet<>();
     PersRadiologue persRadiologue=new PersRadiologue();
+    private int generateUniqueId() {
+        Random random = new Random();
+        int newId;
+        do {newId = random.nextInt(9000) + 1000;
+        } while (!isIdUnique(newId));
+
+        usedIds.add(newId);
+        return newId;
+    }
+    private boolean isIdUnique(int id) {
+        if (usedIds.contains(id)) {
+            return false;
+        }List<Radiologue> existingRadiologues = persRadiologue.getAllRadiologue();
+        return existingRadiologues.stream()
+                .noneMatch(rdv -> rdv.getIdR() == id);
+    }
     public Output addRadiologue(Radiologue p) {
-        p.setIdR(iD);
+        p.setIdR(generateUniqueId());
+        if(!categorieServ.viewCategorie(p.getSpecialite()).istrue()){
+            categorieServ.listAllCategories();
+            return new Output(false,"Invalid Specialite for !(Choose from the list above)",null);
+        }
         if(viewRadiologue(p.getIdR()).getObj()==null) {
             persRadiologue.add(p);
-            iD++;
             return new Output(true,"Radiologue added Succesfully ! ",null);
         }
         return new Output(false,"Radiologue already exists ! ",null);

@@ -37,7 +37,7 @@ public class SalleCnt {
                     if (!details.isEmpty()) {
                         int salleNum = details.get("NumS");
                         Technicien technicien = (Technicien)technicienServ.viewTechnicien(details.get("IdT")).getObj();
-                        salleServ.addTechnicienToSalle(salleNum, technicien);
+                        salleServ.addTechnicienToSalle(salleNum, technicien).showoutput();
                     }
                     break;
                 case 6:
@@ -45,7 +45,7 @@ public class SalleCnt {
                     if (!rdetails.isEmpty()) {
                         int salleNum = rdetails.get("NumS");
                         int idT = rdetails.get("IdT");
-                        salleServ.removeTechnicienFromSalle(salleNum, idT);
+                        salleServ.removeTechnicienFromSalle(salleNum, idT).showoutput();
                     }
                     break;
                 case 7:

@@ -16,7 +16,7 @@ public class RadiologueIhm {
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
         return choice;
     }
 

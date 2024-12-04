@@ -22,21 +22,18 @@ public  class RadiologyReportPDF {
     private  CentreRadio centreRadio;
 
     public RadiologyReportPDF() {
-        // Retrieve centre details from service
         CentreRadioServ centreRadioServ = new CentreRadioServ();
         Output output = centreRadioServ.viewCentreRadio();
 
         if (output.istrue()) {
             this.centreRadio = (CentreRadio) output.getObj();
         } else {
-            // Fallback to default values if retrieval fails
             this.centreRadio = new CentreRadio("Centre de Radiologie", "Adresse Inconnue", 0, "contact@centre.com");
             System.out.println(output.getMessage());
         }
     }
 
     public  String genererRapport(Patient patient, Rapport rapport) throws IOException {
-        // Generate filename using patient's details
         String horodatage = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
         String nomFichier = "rapport_" + patient.getNom() + "_" + patient.getCIN() + "_" + horodatage + ".pdf";
 
@@ -46,7 +43,6 @@ public  class RadiologyReportPDF {
 
         PdfFont font = PdfFontFactory.createFont();
 
-        // Centre Details (Top Left)
         document.add(new Paragraph(centreRadio.getNom())
                 .setFont(font)
                 .setFontSize(14)
@@ -63,7 +59,6 @@ public  class RadiologyReportPDF {
 
         document.add(new Paragraph("\n\n"));
 
-        // Patient and Rapport Details
         document.add(new Paragraph("Rapport pour: " + patient.getNom() + " " + patient.getPrenom())
                 .setFont(font)
                 .setFontSize(16)
@@ -78,7 +73,6 @@ public  class RadiologyReportPDF {
 
         document.add(new Paragraph("\n"));
 
-        // Rapport Content
         document.add(new Paragraph("Contenu du Rapport:")
                 .setFont(font)
                 .setFontSize(14)

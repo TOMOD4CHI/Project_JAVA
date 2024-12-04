@@ -12,7 +12,9 @@ public class ExamenIhm {
         System.out.println("3. Perform Exam");
         System.out.println("4. View Exams by Radiologist");
         System.out.println("5. View Exams by Patient");
-        System.out.println("6. Return to Main Menu");
+        System.out.println("6. View Exam by ID");
+        System.out.println("7. View Exams by Category");
+        System.out.println("8. Return to Main Menu");
         System.out.print("Enter your choice: ");
 
         int choice = scanner.nextInt();

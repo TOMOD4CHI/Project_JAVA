@@ -10,12 +10,9 @@ import service.SalleServ;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class RendezVousServ {
-    private static int iD=0;
     private RadiologueServ radiologueServ = new RadiologueServ();
     private SalleServ salleServ = new SalleServ();
     private PersCalendrier persCalendrier = new PersCalendrier();
@@ -24,7 +21,23 @@ public class RendezVousServ {
     private PersExamen persExamen=new PersExamen();
     private PatientServ patientServ = new PatientServ();
     private MedecinServ medecinServ = new MedecinServ();
+    private Set<Integer> usedIds = new HashSet<>();
+    private int generateUniqueId() {
+        Random random = new Random();
+        int newId;
+        do {newId = random.nextInt(9000) + 1000;
+        } while (!isIdUnique(newId));
 
+        usedIds.add(newId);
+        return newId;
+    }
+    private boolean isIdUnique(int id) {
+        if (usedIds.contains(id)) {
+            return false;
+        }List<RendezVous> existingRadiologues = persRendezVous.getAllRendezVous();
+        return existingRadiologues.stream()
+                .noneMatch(radiologue -> radiologue.getIdRv() == id);
+    }
     public Output check_existanceOfTreatment(RendezVous rendezVous) {
         if(categorieServ.viewCategorie(rendezVous.getPrescription().getTraitement()).istrue()){
             return new Output(true,"",null);
@@ -48,7 +61,7 @@ public class RendezVousServ {
         patient.setDossier(dossier);
     }
     public RendezVous scheduleRendezVous(RendezVous newRendezVous) {
-        newRendezVous.setIdRv(iD);
+        newRendezVous.setIdRv(generateUniqueId());
         List<Radiologue> radiologues = (List<Radiologue>)radiologueServ.listAllRadiologues().getObj();
         List<Salle> salles = (List<Salle>)salleServ.listAllSalles().getObj();
 
@@ -90,7 +103,6 @@ public class RendezVousServ {
                     medecinServ.addMedecin(newRendezVous.getPrescription().getMedecin());
                 }
                 persRendezVous.add(newRendezVous);
-                iD++;
                 return newRendezVous;
             }
             startDateTime = startDateTime.plusHours(1);

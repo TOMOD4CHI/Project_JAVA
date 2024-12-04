@@ -65,7 +65,6 @@ public class ExamenServ {
             Patient patient = rendezVous.getPatient();
             updatePatientDossier(patient, examen.getRapport());
             persPatient.modify(patient.getCIN(), patient);
-
             return new Output(true, "Examen completed for ID: " + idRDV, null);
         } catch (NumberFormatException e) {
             return new Output(false,"Invalid Rendez-Vous ID format: " + idRDV,null);
@@ -114,9 +113,22 @@ public class ExamenServ {
                 return new Output(false,"Patient : " + patient.getNom()+" "+patient.getPrenom()+" has no exams for now",null);
             }
             else {
-                return new Output(true,"Exams for Patient : "  + patient.getNom()+" "+patient.getPrenom() +"\n :",persExamen.getExamensByRadiologue(CIN));
+                return new Output(true,"Exams for Patient : "  + patient.getNom()+" "+patient.getPrenom() +"\n :",persExamen.getExamensByPatient(CIN));
             }
         }
+    }
+    public Output getExamensByCategorie(String categorie) {
+        CategorieServ categorieServ=new CategorieServ();
+        if(!categorieServ.viewCategorie(categorie).istrue()){
+            categorieServ.listAllCategories();
+            return new Output(false,"Categorie not found",null);
+        }
+        List<Examen> examens = persExamen.getExamensByCategorie(categorie);
+        if (examens == null || examens.isEmpty()) {
+            return new Output(false, "No exams found for category: " + categorie, null);
+        }
+
+        return new Output(true, "Exams for Category: " + categorie + "\n", examens);
     }
     public Output remove(int idRv){
         if(getExamenById(idRv).getObj()==null){
@@ -125,6 +137,5 @@ public class ExamenServ {
         persExamen.remove(idRv);
         return new Output(true,"",null);
     }
-
 }
 

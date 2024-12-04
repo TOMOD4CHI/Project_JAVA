@@ -1,6 +1,9 @@
 package Controller;
 
+import ihm.CategorieIhm;
 import ihm.ExamenIhm;
+import ihm.RadiologueIhm;
+import ihm.RendezVousIhm;
 import service.ExamenServ;
 
 public class ExamenCnt {
@@ -29,7 +32,14 @@ public class ExamenCnt {
                     examenServ.getExamensByPatient(cin).showoutput();
                     break;
                 case 6:
-                    //this doesnt work idk why it ends the whole program
+                    int examId = RendezVousIhm.viewRendezVous();
+                    examenServ.getExamenById(examId).showoutput();
+                    break;
+                case 7:
+                    String category = CategorieIhm.viewCategorie();
+                    examenServ.getExamensByCategorie(category).showoutput();
+                    break;
+                case 8:
                     return;
                 default:
                     System.out.println("Invalid choice. Please try again.");

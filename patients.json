@@ -1,36 +1,72 @@
 [
   {
-    "adresse": "fsdfsdf",
-    "CIN": 10254787,
-    "dateDeNaissance": "20/78/2000",
+    "adresse": "Menzel Jmil",
+    "CIN": 2548964,
+    "dateDeNaissance": "25/06/2001",
     "dossier": {
       "results": [
         {
           "prescription": {
             "medecin": {
-              "idM": 78,
-              "specialite": "fsf",
-              "contact": "sfsf@dfdf.df",
-              "nom": "idk",
-              "prenom": "idk",
-              "numTelephone": 20154896
+              "idM": 12,
+              "specialite": "Idk",
+              "contact": "Hamdi@yahoo.com",
+              "nom": "Chicha",
+              "prenom": "Hamdi",
+              "numTelephone": 78451289
             },
             "traitement": "IRM"
           },
           "rapport": {
-            "contenu": "lbas",
+            "contenu": "Nothing Dangerous Just a tumor in the head ",
             "radiologue": {
-              "idR": 78,
-              "nom": "fdsf",
-              "prenom": "fl",
-              "numTelephone": 44555544
+              "idR": 8178,
+              "specialite": "Echographie",
+              "nom": "Krekeb",
+              "prenom": "Ali",
+              "numTelephone": 20145987
             }
           }
         }
       ]
     },
-    "nom": "fouleni",
-    "prenom": "flen",
-    "numTelephone": 20456987
+    "nom": "Fouleni",
+    "prenom": "Flen",
+    "numTelephone": 25147896
+  },
+  {
+    "adresse": "Jerba",
+    "CIN": 12345678,
+    "dateDeNaissance": "20/10/1999",
+    "dossier": {
+      "results": [
+        {
+          "prescription": {
+            "medecin": {
+              "idM": 12,
+              "specialite": "idk",
+              "contact": "ljj@kkj.fgd",
+              "nom": "hmadi",
+              "prenom": "Hamdi chicha",
+              "numTelephone": 45127898
+            },
+            "traitement": "Scanner"
+          },
+          "rapport": {
+            "contenu": "Have Cancer RIP :)",
+            "radiologue": {
+              "idR": 1002,
+              "specialite": "Scanner",
+              "nom": "Hsine",
+              "prenom": "Mohsine",
+              "numTelephone": 98541236
+            }
+          }
+        }
+      ]
+    },
+    "nom": "Kouki",
+    "prenom": "Ines",
+    "numTelephone": 78451256
   }
 ]

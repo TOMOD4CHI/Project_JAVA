@@ -86,7 +86,7 @@ public class Examen {
                 "\nRadiologue : "+radiologue.getNom()+" "+radiologue.getPrenom()+
                 "\nSalle : "+salle.getNum()+
                 "\nTreatemnt : "+categorie.getNom()+
-                "\nRapport : "+r;
+                "\nRapport : "+r+"\n-----------------\n";
 
     }
     //then when creating tho do_exam function look for the latest rdv of this client

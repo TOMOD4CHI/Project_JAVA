@@ -4,14 +4,10 @@ public class Radiologue extends Personne{
     private int idR;
     private String specialite;//can be paired with categorie class
     private  static double salaire=2000;
-    //pass the categorie in constructor and get its  name to the specialite
     public Radiologue(String nom, String prenom, int numTelephone, String specialite, int idR) {
         super(nom, prenom, numTelephone);
         this.idR = idR;
-        getCategorie(specialite);
-    }
-    public void getCategorie(String specialite) {
-        //check if specialite exists in categories and get it to the specialite variable
+        this.specialite=specialite;
     }
     public int getIdR() {
         return idR;

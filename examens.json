@@ -1,30 +1,78 @@
 [
   {
-    "idRDV": 45,
+    "idRDV": 6766,
     "patient": {
-      "adresse": "fsdfsdf",
-      "CIN": 10254787,
-      "dateDeNaissance": "20/78/2000",
+      "adresse": "Menzel Jmil",
+      "CIN": 2548964,
+      "dateDeNaissance": "25/06/2001",
       "dossier": {
         "results": []
       },
-      "nom": "fouleni",
-      "prenom": "flen",
-      "numTelephone": 20456987
+      "nom": "Fouleni",
+      "prenom": "Flen",
+      "numTelephone": 25147896
     },
     "radiologue": {
-      "idR": 78,
-      "nom": "fdsf",
-      "prenom": "fl",
-      "numTelephone": 44555544
+      "idR": 8178,
+      "specialite": "Echographie",
+      "nom": "Krekeb",
+      "prenom": "Ali",
+      "numTelephone": 20145987
     },
     "salle": {
-      "num": 5,
-      "technicien": []
+      "num": 12
     },
     "categorie": {
       "nom": "IRM",
-      "prix": 550.0
+      "prix": 700.0
+    },
+    "rapport": {
+      "contenu": "Nothing Dangerous Just a tumor in the head ",
+      "radiologue": {
+        "idR": 8178,
+        "specialite": "Echographie",
+        "nom": "Krekeb",
+        "prenom": "Ali",
+        "numTelephone": 20145987
+      }
+    }
+  },
+  {
+    "idRDV": 1721,
+    "patient": {
+      "adresse": "Jerba",
+      "CIN": 12345678,
+      "dateDeNaissance": "20/10/1999",
+      "dossier": {
+        "results": []
+      },
+      "nom": "Kouki",
+      "prenom": "Ines",
+      "numTelephone": 78451256
+    },
+    "radiologue": {
+      "idR": 1002,
+      "specialite": "Scanner",
+      "nom": "Hsine",
+      "prenom": "Mohsine",
+      "numTelephone": 98541236
+    },
+    "salle": {
+      "num": 69
+    },
+    "categorie": {
+      "nom": "Scanner",
+      "prix": 500.0
+    },
+    "rapport": {
+      "contenu": "Have Cancer RIP :)",
+      "radiologue": {
+        "idR": 1002,
+        "specialite": "Scanner",
+        "nom": "Hsine",
+        "prenom": "Mohsine",
+        "numTelephone": 98541236
+      }
     }
   }
 ]

@@ -1,42 +1,83 @@
 [
   {
-    "date": "2024-12-01T00:01:52.2870884",
-    "idRv": 45,
+    "date": "2024-12-04T21:05:09.0830703",
+    "idRv": 6766,
     "patient": {
-      "adresse": "fsdfsdf",
-      "CIN": 10254787,
-      "dateDeNaissance": "20/78/2000",
+      "adresse": "Menzel Jmil",
+      "CIN": 2548964,
+      "dateDeNaissance": "25/06/2001",
       "dossier": {
         "results": [
           {
             "prescription": {
               "medecin": {
-                "idM": 78,
-                "specialite": "fsf",
-                "contact": "sfsf@dfdf.df",
-                "nom": "idk",
-                "prenom": "idk",
-                "numTelephone": 20154896
+                "idM": 12,
+                "specialite": "Idk",
+                "contact": "Hamdi@yahoo.com",
+                "nom": "Chicha",
+                "prenom": "Hamdi",
+                "numTelephone": 78451289
               },
               "traitement": "IRM"
             }
           }
         ]
       },
-      "nom": "fouleni",
-      "prenom": "flen",
-      "numTelephone": 20456987
+      "nom": "Fouleni",
+      "prenom": "Flen",
+      "numTelephone": 25147896
     },
     "prescription": {
       "medecin": {
-        "idM": 78,
-        "specialite": "fsf",
-        "contact": "sfsf@dfdf.df",
-        "nom": "idk",
-        "prenom": "idk",
-        "numTelephone": 20154896
+        "idM": 12,
+        "specialite": "Idk",
+        "contact": "Hamdi@yahoo.com",
+        "nom": "Chicha",
+        "prenom": "Hamdi",
+        "numTelephone": 78451289
       },
       "traitement": "IRM"
+    },
+    "state": "Done"
+  },
+  {
+    "date": "2024-12-04T21:06:52.9947908",
+    "idRv": 1721,
+    "patient": {
+      "adresse": "Jerba",
+      "CIN": 12345678,
+      "dateDeNaissance": "20/10/1999",
+      "dossier": {
+        "results": [
+          {
+            "prescription": {
+              "medecin": {
+                "idM": 12,
+                "specialite": "idk",
+                "contact": "ljj@kkj.fgd",
+                "nom": "hmadi",
+                "prenom": "Hamdi chicha",
+                "numTelephone": 45127898
+              },
+              "traitement": "Scanner"
+            }
+          }
+        ]
+      },
+      "nom": "Kouki",
+      "prenom": "Ines",
+      "numTelephone": 78451256
+    },
+    "prescription": {
+      "medecin": {
+        "idM": 12,
+        "specialite": "idk",
+        "contact": "ljj@kkj.fgd",
+        "nom": "hmadi",
+        "prenom": "Hamdi chicha",
+        "numTelephone": 45127898
+      },
+      "traitement": "Scanner"
     },
     "state": "Done"
   }

@@ -1,70 +1,28 @@
 [
   {
     "radiologue": {
-      "idR": 78,
-      "nom": "fdsf",
-      "prenom": "fl",
-      "numTelephone": 44555544
+      "idR": 8178,
+      "specialite": "Echographie",
+      "nom": "Krekeb",
+      "prenom": "Ali",
+      "numTelephone": 20145987
     },
     "salle": {
-      "num": 789,
-      "technicien": [
-        {
-          "idT": 111,
-          "salle_attribuer": 5,
-          "nom": "fdfd",
-          "prenom": "fdf",
-          "numTelephone": 5
-        }
-      ]
+      "num": 69
     },
-    "Date": "2024-11-30T20:30:07.5647898"
+    "Date": "2024-12-04T21:05:09.0830703"
   },
   {
     "radiologue": {
-      "idR": 78,
-      "nom": "fdsf",
-      "prenom": "fl",
-      "numTelephone": 44555544
+      "idR": 1002,
+      "specialite": "Scanner",
+      "nom": "Hsine",
+      "prenom": "Mohsine",
+      "numTelephone": 98541236
     },
     "salle": {
-      "num": 5,
-      "technicien": []
+      "num": 25
     },
-    "Date": "2024-11-30T21:33:21.1460857"
-  },
-  {
-    "radiologue": {
-      "idR": 78,
-      "nom": "fdsf",
-      "prenom": "fl",
-      "numTelephone": 44555544
-    },
-    "salle": {
-      "num": 789,
-      "technicien": [
-        {
-          "idT": 111,
-          "salle_attribuer": 5,
-          "nom": "fdfd",
-          "prenom": "fdf",
-          "numTelephone": 5
-        }
-      ]
-    },
-    "Date": "2024-11-30T22:58:25.7288663"
-  },
-  {
-    "radiologue": {
-      "idR": 78,
-      "nom": "fdsf",
-      "prenom": "fl",
-      "numTelephone": 44555544
-    },
-    "salle": {
-      "num": 5,
-      "technicien": []
-    },
-    "Date": "2024-12-01T00:01:52.2870884"
+    "Date": "2024-12-04T21:06:52.9947908"
   }
 ]

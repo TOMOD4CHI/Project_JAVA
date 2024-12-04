@@ -24,14 +24,13 @@ public class RendezVousIhm {
     public static RendezVous addRendezVous() {
         Scanner scanner = new Scanner(System.in);
         Patient patient=PatientIhm.addPatient();
-        System.out.println("Type The Prescription (From the list above :) ): ");
+        System.out.println("Treatment type in The Prescription  ( (From the list above :) ): ");
         Prescription prescription=generatePrescription();
         return new RendezVous(0,patient,prescription);
     }
     private static Prescription generatePrescription() {
         System.out.println("Enter the traitement name:");
         String type = Verification.getValidName();
-        System.out.println("Enter the Docotr Name : ");
         Medecin medecin = MedecinIhm.addMedecin();
         return new Prescription(type, medecin);
     }
